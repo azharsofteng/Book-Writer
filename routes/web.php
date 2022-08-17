@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ContentController;
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -35,10 +36,16 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/logout', [AuthenticationController::class, 'logout'])->name('logout');
 
-    // Content
+    //Content
     Route::get('/content/edit', [ContentController::class, 'content'])->name('content.edit');
     Route::put('/content/update/{id}', [ContentController::class, 'update'])->name('content.update');
-    // About
+    //About
     Route::get('/about/edit', [AboutController::class, 'about'])->name('about.edit');
     Route::put('/about/update/{id}', [AboutController::class, 'update'])->name('about.update');
+    //Category
+    Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
+    Route::post('/category/store', [CategoryController::class, 'store'])->name('category.store');
+    Route::get('/category/edit/{id}', [CategoryController::class, 'edit'])->name('category.edit');
+    Route::post('/category/update/{id}', [CategoryController::class, 'update'])->name('category.update');
+
 });

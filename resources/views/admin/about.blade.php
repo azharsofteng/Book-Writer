@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Dashboard')
+@section('title', 'Update About')
 @section('main-content')
 <main>
     <div class="container-fluid" id="Category">
@@ -114,7 +114,7 @@
                 reader.readAsDataURL(input.files[0]);
             }
         }
-        document.getElementById("previewImage").src="{{ (!empty($about)) ? asset($about->image) : asset('images/no.png') }}";
+        document.getElementById("previewImage").src="{{ (!empty($about)) ? asset($about->image) : asset('no-image.jpg') }}";
 
         function readSignature(input) {
             if (input.files && input.files[0]) {
@@ -128,6 +128,6 @@
                 reader.readAsDataURL(input.files[0]);
             }
         }
-        document.getElementById("previewSignature").src="{{ (!empty($about)) ? asset($about->signature) : asset('images/no.png') }}";
+        document.getElementById("previewSignature").src="{{ (!empty($about)) ? asset($about->signature) : asset('no-image.jpg') }}";
     </script>
 @endpush
