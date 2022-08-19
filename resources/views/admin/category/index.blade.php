@@ -52,11 +52,11 @@
 
                                 <label for="name" class="col-sm-3 col-form-label">Short Description</label>
                                 <div class="col-sm-9">
-                                    <textarea name="description" class="form-control shadow-none form-control-sm" id="description" cols="3" rows="3">{{ isset($category) ? $category->description : '' }}</textarea>
+                                    <textarea name="description" class="form-control shadow-none form-control-sm" id="description" cols="4" rows="4">{{ isset($category) ? $category->description : '' }}</textarea>
                                 </div>
 
                                 <label for="inputPassword" class="col-sm-3 col-form-label">Category Image</label>
-                                <div class="col-sm-9 mt-2">
+                                <div class="col-sm-9">
                                     <input type="file" name="image" class="form-control shadow-none @error('image') is-invalid @enderror" id="image" onchange="readURL(this);">
                                     
                                     @error('image')
@@ -66,7 +66,7 @@
                                     @enderror
 
                                     <div>
-                                        <img src="#" id="previewImage" style="width: 100px; height: 80px; border: 1px solid #999; padding: 2px;" alt="">
+                                        <img src="{{ (!empty(@$category)) ? asset(@$category->image) : asset('no-image.jpg') }}" id="previewImage" style="width: 100px; height: 80px; border: 1px solid #999; padding: 2px;" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -133,18 +133,14 @@
 @endsection
 @push('script')
     <script>
-        function readURL(input) {
+        function readURL(input){
             if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    $('#previewImage')
-                        .attr('src', e.target.result)
-                        .width(100)
-                        .height(80);
+                var reader    = new FileReader();
+                reader.onload = function(e){
+                    $('#previewImage').attr('src',e.target.result).width(100).height(80);
                 };
                 reader.readAsDataURL(input.files[0]);
             }
         }
-        document.getElementById("previewImage").src="{{ isset($category) ? asset($category->image) : asset('no-image.jpg') }}";
     </script>
 @endpush

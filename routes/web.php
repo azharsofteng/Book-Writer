@@ -36,6 +36,9 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/logout', [AuthenticationController::class, 'logout'])->name('logout');
 
+    //Banner 
+    Route::get('/banner/edit', [ContentController::class, 'banner'])->name('banner.edit');
+    Route::put('/banner/update/{id}', [ContentController::class, 'bannerUpdate'])->name('banner.update');
     //Content
     Route::get('/content/edit', [ContentController::class, 'content'])->name('content.edit');
     Route::put('/content/update/{id}', [ContentController::class, 'update'])->name('content.update');

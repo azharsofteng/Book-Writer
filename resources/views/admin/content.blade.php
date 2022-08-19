@@ -88,6 +88,6 @@
                 reader.readAsDataURL(input.files[0]);
             }
         }
-        document.getElementById("previewImage").src="{{ (!empty($content)) ? asset($content->logo) : asset('images/no-image.jpg') }}";
+        document.getElementById("previewImage").src="{{ (!empty($content)) ? asset($content->logo) : asset('no-image.jpg') }}";
     </script>
 @endpush

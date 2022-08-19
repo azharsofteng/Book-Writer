@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Content;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Banner;
 use Brian2694\Toastr\Facades\Toastr;
 
 class ContentController extends Controller
@@ -46,6 +47,44 @@ class ContentController extends Controller
             $content->logo = $LogoImg;
             $content->save();
             Toastr::success('Content Update Success!', 'Success', ["positionClass" => "toast-top-right","closeButton" => true,
+            "progressBar" => true]);
+            return back();
+        } catch (\Exception $e) {
+            Toastr::success($e->getMessage() , 'Error', ["positionClass" => "toast-top-right","closeButton" => true,
+            "progressBar" => true]);
+        }
+    }
+
+    public function banner()
+    {
+        $banner = Banner::first();
+        return view('admin.banner', compact('banner'));
+    }
+
+    public function bannerUpdate(Request $request, $id)
+    {
+        $request->validate([
+            'title' => 'required|string|min:3',
+            'sub_title' => 'required|string|min:3',
+        ]);
+
+        try {
+            $banner = Banner::find($id);
+
+            //Logo 
+            $Image = $banner->image;
+            if ($request->hasFile('image')) {
+                if (!empty($banner->image) && file_exists($banner->image)) 
+                    unlink($banner->image);
+                $Image = $this->imageUpload($request, 'image', 'uploads/about');
+            }
+ 
+            $banner->title = $request->title;
+            $banner->sub_title = $request->sub_title;
+            $banner->btn_url = $request->btn_url;
+            $banner->image = $Image;
+            $banner->save();
+            Toastr::success('Banner Update Success!', 'Success', ["positionClass" => "toast-top-right","closeButton" => true,
             "progressBar" => true]);
             return back();
         } catch (\Exception $e) {
