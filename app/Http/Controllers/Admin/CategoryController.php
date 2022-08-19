@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Category;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Brian2694\Toastr\Facades\Toastr;
@@ -26,6 +27,7 @@ class CategoryController extends Controller
         try {
             $category = new Category();
             $category->name = $request->name;
+            $category->slug = Str::slug($request->name);
             $category->title = $request->title;
             $category->description = $request->description;
             $category->image = $this->imageUpload($request, 'image', 'uploads/category');
@@ -67,6 +69,7 @@ class CategoryController extends Controller
             }
 
             $category->name = $request->name;
+            $category->slug = Str::slug($request->name);
             $category->title = $request->title;
             $category->description = $request->description;
             $category->image = $Image;

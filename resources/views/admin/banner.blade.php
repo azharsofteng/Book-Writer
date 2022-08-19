@@ -31,7 +31,7 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <label for="btn_url" class="col-form-label">Button URL </label>
-                                        <input type="url" class="form-control shadow-none" name="btn_url" id="btn_url" value="{{ $banner->email }}" placeholder="Enter button url">
+                                        <input type="url" class="form-control shadow-none" name="btn_url" id="btn_url" value="{{ $banner->btn_url }}" placeholder="Enter button url">
                                         @error('email') <span style="color: red">{{$message}}</span> @enderror
 
                                         <label for="image" class="col-form-label">Banner Image</label>
