@@ -7,6 +7,8 @@ use App\Http\Controllers\Admin\ContentController;
 use App\Http\Controllers\Auth\AuthenticationController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\GalleryController;
+use App\Http\Controllers\Auth\CustomerController;
+use App\Http\Controllers\CustomerDashboardController;
 use App\Http\Controllers\Website\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +25,19 @@ use Illuminate\Support\Facades\Route;
 
 // Website 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+// Customer Authentication
+Route::group(['middleware' => 'guest:customer'], function() {
+    Route::get('/customer/login', [CustomerController::class, 'customerLogin'])->name('customer.login');
+    Route::get('/customer/registration', [CustomerController::class, 'customerRegistration'])->name('customer.registration');
+    Route::post('/customer/registration', [CustomerController::class, 'saveCustomer'])->name('customer.store');
+    Route::post('/customer/login', [CustomerController::class, 'loginCheck'])->name('customer.login.check');
+});
+
+//Customer Dashboard 
+Route::group(['middleware' => 'customer'], function() {
+    Route::get('/customer/dashboard', [CustomerDashboardController::class, 'index'])->name('customer.dashboard');
+});
 
 // Authentication
 Route::group(['middleware' => ['guest']], function() {

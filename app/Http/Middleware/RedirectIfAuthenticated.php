@@ -25,6 +25,10 @@ class RedirectIfAuthenticated
             if (Auth::guard($guard)->check()) {
                 return redirect(RouteServiceProvider::HOME);
             }
+            
+            if (Auth::guard('customer')->check()) {
+                return redirect(RouteServiceProvider::HOME_CUSTOMER);
+            }
         }
 
         return $next($request);
