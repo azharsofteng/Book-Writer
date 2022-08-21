@@ -62,7 +62,7 @@ class AboutController extends Controller
             "progressBar" => true]);
             return back();
         } catch (\Exception $e) {
-            Toastr::success($e->getMessage() , 'Error', ["positionClass" => "toast-top-right","closeButton" => true,
+            Toastr::success('Something went wrong!' , 'Error', ["positionClass" => "toast-top-right","closeButton" => true,
             "progressBar" => true]);
         }
     }

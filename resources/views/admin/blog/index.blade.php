@@ -1,5 +1,12 @@
 @extends('layouts.master')
 @section('title', 'Blog')
+@push('admin-css')
+   <style>
+        .ck.ck-editor__main>.ck-editor__editable{
+            height: 150px;
+        }
+    </style>
+@endpush
 @section('main-content')
 <main>
     <div class="container-fluid" id="Blog">
@@ -50,13 +57,13 @@
                                     </span>
                                 @enderror
 
-                                <label for="name" class="col-sm-3 col-form-label"> Description</label>
+                                <label for="Details" class="col-sm-3 col-form-label"> Description</label>
                                 <div class="col-sm-9">
-                                    <textarea name="description" class="form-control shadow-none form-control-sm" id="description" cols="5" rows="5" placeholder="Enter Description">{{ isset($blog) ? $blog->description : '' }}</textarea>
+                                    <textarea name="description" class="form-control shadow-none form-control-sm" id="Details" cols="5" rows="5" placeholder="Enter Description">{{ isset($blog) ? $blog->description : '' }}</textarea>
                                 </div>
 
-                                <label for="inputPassword" class="col-sm-3 col-form-label">Blog Image</label>
-                                <div class="col-sm-9">
+                                <label for="inputPassword" class="col-sm-3 col-form-label mt-1">Blog Image</label>
+                                <div class="col-sm-9 mt-1">
                                     <input type="file" name="image" class="form-control shadow-none @error('image') is-invalid @enderror" id="image" onchange="readURL(this);">
                                     
                                     @error('image')
@@ -108,16 +115,16 @@
                                         <td>{{ $key + 1 }}</td>
                                         <td>{{ $blog->title }}</td>
                                         <td>{{ $blog->date }}</td>
-                                        <td>{{ Str::limit($blog->description, 50, '...') }}</td>
+                                        <td>{!! Str::limit($blog->description, 50, '...') !!}</td>
                                         <td><img src="{{ asset($blog->image) }}" width="40" height="40" alt=""></td>
                                         <td>
                                             <a href="{{ route('blog.edit', $blog->id) }}" class="btn btn-edit edit-blog"><i class="fas fa-edit"></i></a>
 
-                                            {{-- <button type="submit" class="btn btn-delete shadow-none" onclick="deleteCategory({{ $category->id }})"><i class="fa fa-trash"></i></button>
-                                            <form id="delete-form-{{$category->id}}" action="{{ route('category.delete',$category->id) }}" method="POST" style="display: none;">
+                                            <button type="submit" class="btn btn-delete shadow-none" onclick="deleteBlog({{ $blog->id }})"><i class="fa fa-trash"></i></button>
+                                            <form id="delete-form-{{$blog->id}}" action="{{ route('blog.destroy',$blog->id) }}" method="POST" style="display: none;">
                                                 @csrf
                                                 @method('DELETE')
-                                            </form> --}}
+                                            </form>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -132,7 +139,14 @@
 </main>
 @endsection
 @push('script')
+    <script src="{{ asset('js/ckeditor.js') }}"></script>
     <script>
+        ClassicEditor
+            .create( document.querySelector( '#Details' ) )
+            .catch( error => {
+                console.error( error );
+            });
+    
         function readURL(input){
             if (input.files && input.files[0]) {
                 var reader    = new FileReader();
@@ -141,6 +155,37 @@
                 };
                 reader.readAsDataURL(input.files[0]);
             }
+        }
+
+        function deleteBlog(id) {
+            swal({
+                title: 'Are you sure?',
+                text: "You want to Delete this!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'No, cancel!',
+                confirmButtonClass: 'btn btn-success',
+                cancelButtonClass: 'btn btn-danger',
+                buttonsStyling: false,
+                reverseButtons: true
+            }).then((result) => {
+                if (result.value) {
+                    event.preventDefault();
+                    document.getElementById('delete-form-'+id).submit();
+                } else if (
+                    // Read more about handling dismissals
+                    result.dismiss === swal.DismissReason.cancel
+                ) {
+                    swal(
+                        'Cancelled',
+                        'Your data is safe :)',
+                        'error'
+                    )
+                }
+            })
         }
     </script>
 @endpush

@@ -11435,3 +11435,6 @@ body {
 .alert {
     padding: 7px 10px;
 }
+button.swal2-confirm.btn.btn-success {
+    margin-left: 10px;
+}

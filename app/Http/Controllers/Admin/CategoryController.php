@@ -37,7 +37,7 @@ class CategoryController extends Controller
             "progressBar" => true]);
             return back();
         } catch (\Exception $e) {
-            Toastr::success($e->getMessage(), 'Error', ["positionClass" => "toast-top-right","closeButton" => true,
+            Toastr::success('Something went wrong!', 'Error', ["positionClass" => "toast-top-right","closeButton" => true,
             "progressBar" => true]);
         }
     }
@@ -79,7 +79,22 @@ class CategoryController extends Controller
             "progressBar" => true]);
             return redirect()->route('category.index');
         } catch (\Exception $e) {
-            Toastr::success($e->getMessage(), 'Error', ["positionClass" => "toast-top-right","closeButton" => true,
+            Toastr::success('Something went wrong!', 'Error', ["positionClass" => "toast-top-right","closeButton" => true,
+            "progressBar" => true]);
+        }
+    }
+
+    public function destroy($id)
+    {
+        try {
+            $category = Category::find($id);
+            if (!empty($category->image) && file_exists($category->image)) {
+                unlink($category->image);
+            }
+            $category->delete();
+            return back();
+        } catch (\Exception $e) {
+            Toastr::success('Something went wrong!', 'error', ["positionClass" => "toast-top-right","closeButton" => true,
             "progressBar" => true]);
         }
     }
