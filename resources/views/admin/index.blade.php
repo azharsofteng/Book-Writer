@@ -8,84 +8,100 @@
         </div>
         <div class="row mt-3">
             <div class="col-xl-3 col-md-6">
-                <div class="card mb-3 dashboard-card">
-                    <div class="card-body mx-auto">
-                        <div class=" d-flex justify-content-center align-items-center">
-                            <i class="fas fa-users fa-2x"></i>
+                <a href="{{ route('admin.registration') }}">
+                    <div class="card mb-3 dashboard-card">
+                        <div class="card-body mx-auto">
+                            <div class=" d-flex justify-content-center align-items-center">
+                                <i class="fas fa-users fa-2x"></i>
+                            </div>
+                            <p class="dashboard-card-text">Create user</p>
                         </div>
-                        <p class="dashboard-card-text">Primary Card</p>
                     </div>
-                </div>
+                </a>
             </div>
             <div class="col-xl-3 col-md-6">
-                <div class="card mb-3 dashboard-card">
-                    <div class="card-body mx-auto">
-                        <div class=" d-flex justify-content-center align-items-center">
-                            <i class="far fa-money-bill-alt fa-2x"></i>
+                <a href="{{ route('category.index') }}">
+                    <div class="card mb-3 dashboard-card">
+                        <div class="card-body mx-auto">
+                            <div class=" d-flex justify-content-center align-items-center">
+                                <i class="fab fa-bandcamp fa-2x"></i>
+                            </div>
+                            <p class="dashboard-card-text">Create Category</p>
                         </div>
-                        <p class="dashboard-card-text">Primary Card</p>
                     </div>
-                </div>
+                </a>
             </div>
             <div class="col-xl-3 col-md-6">
-                <div class="card mb-3 dashboard-card">
-                    <div class="card-body mx-auto">
-                        <div class=" d-flex justify-content-center align-items-center">
-                            <i class="far fa-file-alt fa-2x"></i>
+                <a href="{{ route('blog.index') }}">
+                    <div class="card mb-3 dashboard-card">
+                        <div class="card-body mx-auto">
+                            <div class=" d-flex justify-content-center align-items-center">
+                                <i class="far fa-file-alt fa-2x"></i>
+                            </div>
+                            <p class="dashboard-card-text">Create Blog</p>
                         </div>
-                        <p class="dashboard-card-text">Primary Card</p>
                     </div>
-                </div>
+                </a>
             </div>
             <div class="col-xl-3 col-md-6">
-                <div class="card mb-3 dashboard-card">
-                    <div class="card-body mx-auto">
-                        <div class=" d-flex justify-content-center align-items-center">
-                            <i class="far fa-file-pdf fa-2x"></i>
+                <a href="{{ route('gallery.index') }}">
+                    <div class="card mb-3 dashboard-card">
+                        <div class="card-body mx-auto">
+                            <div class=" d-flex justify-content-center align-items-center">
+                                <i class="far fa-image fa-2x"></i>
+                            </div>
+                            <p class="dashboard-card-text">Create Gallery</p>
                         </div>
-                        <p class="dashboard-card-text">Primary Card</p>
                     </div>
-                </div>
+                </a>
             </div>
             <div class="col-xl-3 col-md-6">
-                <div class="card mb-3 dashboard-card">
-                    <div class="card-body mx-auto">
-                        <div class=" d-flex justify-content-center align-items-center">
-                            <i class="far fa-file-pdf fa-2x"></i>
+                <a href="">
+                    <div class="card mb-3 dashboard-card">
+                        <div class="card-body mx-auto">
+                            <div class=" d-flex justify-content-center align-items-center">
+                                <i class="far fa-file-pdf fa-2x"></i>
+                            </div>
+                            <p class="dashboard-card-text">Products Entry</p>
                         </div>
-                        <p class="dashboard-card-text">Primary Card</p>
                     </div>
-                </div>
+                </a>
             </div>
             <div class="col-xl-3 col-md-6">
-                <div class="card mb-3 dashboard-card">
-                    <div class="card-body mx-auto">
-                        <div class=" d-flex justify-content-center align-items-center">
-                            <i class="fas fa-users fa-2x"></i>
+                <a href="">
+                    <div class="card mb-3 dashboard-card">
+                        <div class="card-body mx-auto">
+                            <div class=" d-flex justify-content-center align-items-center">
+                                <i class="fas fa-list-alt fa-2x"></i>
+                            </div>
+                            <p class="dashboard-card-text">All Order</p>
                         </div>
-                        <p class="dashboard-card-text">Primary Card</p>
                     </div>
-                </div>
+                </a>
             </div>
             <div class="col-xl-3 col-md-6">
-                <div class="card mb-3 dashboard-card">
-                    <div class="card-body mx-auto">
-                        <div class=" d-flex justify-content-center align-items-center">
-                            <i class="far fa-money-bill-alt fa-2x"></i>
+                <a href="">
+                    <div class="card mb-3 dashboard-card">
+                        <div class="card-body mx-auto">
+                            <div class=" d-flex justify-content-center align-items-center">
+                                <i class="fas fa-envelope fa-2x"></i>
+                            </div>
+                            <p class="dashboard-card-text">Public Message</p>
                         </div>
-                        <p class="dashboard-card-text">Primary Card</p>
                     </div>
-                </div>
+                </a>
             </div>
             <div class="col-xl-3 col-md-6">
-                <div class="card mb-3 dashboard-card">
-                    <div class="card-body mx-auto">
-                        <div class=" d-flex justify-content-center align-items-center">
-                            <i class="fa fa-sign-out-alt fa-2x"></i>
+                <a href="{{ route('logout') }}">
+                    <div class="card mb-3 dashboard-card">
+                        <div class="card-body mx-auto">
+                            <div class=" d-flex justify-content-center align-items-center">
+                                <i class="fa fa-sign-out-alt fa-2x"></i>
+                            </div>
+                            <p class="dashboard-card-text">Sign Out</p>
                         </div>
-                        <p class="dashboard-card-text">Sign Out</p>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </div>
