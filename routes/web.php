@@ -52,6 +52,11 @@ Route::get('/form', [DashboardController::class, 'form'])->name('form');
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/logout', [AuthenticationController::class, 'logout'])->name('logout');
+    Route::get('/registration', [AuthenticationController::class, 'registration'])->name('admin.registration');
+    Route::post('/registration', [AuthenticationController::class, 'newUser'])->name('registration.store');
+    Route::put('/password', [AuthenticationController::class, 'passwordUpdate'])->name('password.change');
+    Route::get('/profile', [AuthenticationController::class, 'profile'])->name('profile');
+    Route::put('/profile', [AuthenticationController::class, 'profileUpdate'])->name('profile.update');
 
     //Banner 
     Route::get('/banner/edit', [ContentController::class, 'banner'])->name('banner.edit');

@@ -52,7 +52,8 @@
                 </a>
                 <div class="collapse" id="collapseAdministration" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                        <a class="nav-link" href="#">Create User</a>
+                        <a class="nav-link" href="{{ route('registration.store') }}">Create User</a>
+                        <a class="nav-link" href="{{ route('profile') }}">Profile Update</a>
                     </nav>
                 </div>
                 {{-- <div class="sb-sidenav-menu-heading">Addons</div> --}}
