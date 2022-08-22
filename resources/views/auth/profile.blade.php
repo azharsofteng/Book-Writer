@@ -56,7 +56,7 @@
                                 <hr class="my-2">
                                 <div class="clearfix">
                                     <div class="text-end m-auto">
-                                        <button type="reset" class="btn btn-dark shadow-none">Reset</button>
+                                        <button type="reset" class="btn btn-reset shadow-none">Reset</button>
                                         <button type="submit" class="btn btn-submit shadow-none">Update</button>
                                     </div>
                                 </div>

@@ -61,8 +61,8 @@
                         <hr class="my-2">
                         <div class="clearfix">
                             <div class="text-end m-auto">
-                                <button type="reset" class="btn btn-dark">Reset</button>
-                                <button type="submit" class="btn btn-primary">save</button>
+                                <button type="reset" class="btn btn-reset">Reset</button>
+                                <button type="submit" class="btn btn-submit">save</button>
                             </div>
                         </div>
                     </form>    

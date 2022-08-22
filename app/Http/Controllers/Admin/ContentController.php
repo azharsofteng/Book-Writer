@@ -50,7 +50,7 @@ class ContentController extends Controller
             "progressBar" => true]);
             return back();
         } catch (\Exception $e) {
-            Toastr::success('Something went wrong!' , 'Error', ["positionClass" => "toast-top-right","closeButton" => true,
+            Toastr::error('Something went wrong!' , 'Error', ["positionClass" => "toast-top-right","closeButton" => true,
             "progressBar" => true]);
         }
     }
@@ -88,7 +88,7 @@ class ContentController extends Controller
             "progressBar" => true]);
             return back();
         } catch (\Exception $e) {
-            Toastr::success('Something went wrong!' , 'Error', ["positionClass" => "toast-top-right","closeButton" => true,
+            Toastr::error('Something went wrong!' , 'Error', ["positionClass" => "toast-top-right","closeButton" => true,
             "progressBar" => true]);
         }
     }

@@ -101,7 +101,9 @@ class AuthenticationController extends Controller
         }
         else
         {
-            return 'password dose not match';
+            Toastr::error('password dose not match', 'Error', ["positionClass" => "toast-top-right","closeButton" => true,
+            "progressBar" => true]);
+            return back();
         }
     }
 

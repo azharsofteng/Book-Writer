@@ -31,7 +31,7 @@ class GalleryController extends Controller
             "progressBar" => true]);
             return back();
         } catch (\Exception $e) {
-            Toastr::success('Something went wrong!', 'Error', ["positionClass" => "toast-top-right","closeButton" => true,
+            Toastr::error('Something went wrong!', 'Error', ["positionClass" => "toast-top-right","closeButton" => true,
             "progressBar" => true]);
         }
     }
@@ -68,7 +68,7 @@ class GalleryController extends Controller
             "progressBar" => true]);
             return redirect()->route('gallery.index');
         } catch (\Exception $e) {
-            Toastr::success('Something went wrong!', 'Error', ["positionClass" => "toast-top-right","closeButton" => true,
+            Toastr::error('Something went wrong!', 'Error', ["positionClass" => "toast-top-right","closeButton" => true,
             "progressBar" => true]);
         }
     }
@@ -83,7 +83,7 @@ class GalleryController extends Controller
             $gallery->delete();
             return back();
         } catch (\Exception $e) {
-            Toastr::success('Something went wrong!', 'error', ["positionClass" => "toast-top-right","closeButton" => true,
+            Toastr::error('Something went wrong!', 'error', ["positionClass" => "toast-top-right","closeButton" => true,
             "progressBar" => true]);
         }
     }
