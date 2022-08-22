@@ -56,7 +56,7 @@
                 </a>
             </div>
             <div class="col-xl-3 col-md-6">
-                <a href="">
+                <a href="{{ route('product.index') }}">
                     <div class="card mb-3 dashboard-card">
                         <div class="card-body mx-auto">
                             <div class=" d-flex justify-content-center align-items-center">

@@ -17,7 +17,7 @@
                     <nav class="sb-sidenav-menu-nested nav">
                         <a class="nav-link" href="{{ route('banner.edit') }}">Banner</a>
                         <a class="nav-link" href="{{ route('category.index') }}">Category</a>
-                        <a class="nav-link" href="#">Product</a>
+                        <a class="nav-link" href="{{ route('product.index') }}">Product</a>
                         <a class="nav-link" href="{{ route('blog.index') }}">Blog</a>
                         <a class="nav-link" href="{{ route('gallery.index') }}">Gallery</a>
                     </nav>

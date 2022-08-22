@@ -19,13 +19,14 @@ class CreateProductsTable extends Migration
                 ->constrained('categories')
                 ->onDelete('cascade');
             $table->string('name');
+            $table->string('slug');
             $table->decimal('price', 18,2)->default(0.00);
-            $table->float('discount')->default(0);
-            $table->float('quantity')->default(0);
+            $table->float('discount')->nullable();
+            $table->float('quantity')->nullable();
             $table->string('image');
             $table->text('short_details');
             $table->text('details')->nullable();
-            $table->tinyInteger('is_feature')->default(0);
+            $table->tinyInteger('is_feature')->nullable();
             $table->string('ip')->nullable();
             $table->softDeletes();
             $table->timestamps();

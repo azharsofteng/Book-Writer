@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\ContentController;
 use App\Http\Controllers\Auth\AuthenticationController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\GalleryController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Auth\CustomerController;
 use App\Http\Controllers\CustomerDashboardController;
 use App\Http\Controllers\Website\HomeController;
@@ -85,4 +86,10 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/gallery/edit/{id}', [GalleryController::class, 'edit'])->name('gallery.edit');
     Route::post('/gallery/update/{id}', [GalleryController::class, 'update'])->name('gallery.update');
     Route::delete('/gallery/destroy/{id}', [GalleryController::class, 'destroy'])->name('gallery.delete');
+    //Product
+    Route::get('/product', [ProductController::class, 'index'])->name('product.index');
+    Route::post('/product/store', [ProductController::class, 'store'])->name('product.store');
+    Route::get('/product/edit/{id}', [ProductController::class, 'edit'])->name('product.edit');
+    Route::post('/product/update/{id}', [ProductController::class, 'update'])->name('product.update');
+    Route::delete('/product/destroy/{id}', [ProductController::class, 'destroy'])->name('product.delete');
 });
