@@ -438,12 +438,7 @@ nav ul li {
     filter: brightness(70%);
 }
 
-.image,
-.image::before {
-    background-image: url("../images/book-1.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-}
+
 
 .image2,
 .image2::before {

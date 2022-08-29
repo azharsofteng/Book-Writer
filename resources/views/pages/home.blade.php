@@ -12,17 +12,31 @@
 <!-- book-list start -->
 <div class="book-list">
     <div class="books">
+        @forelse ($products as $book)
+        <style>
+            .image,
+            .image::before {
+                background-image: url("{{ $book->image }}");
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+        </style>
         <div class="book-card">
             <div class="container">
-                <div class="image"></div>
+                <a href="{{ route('book.details', $book->slug) }}"><div class="image"></div></a>
             </div>
-            <h2>Glittering Stars</h2>
+            <h2>{{ $book->name }}</h2>
             <div class="span">
-                <span>$12.00</span>
-                <del>$15.00</del>
+                @if ($book->discount > 0)
+                <span>${{ $book->price }}</span>
+                <del>${{ $book->discount }}</del>
+                @else
+                <span>${{ $book->price }}</span>
+                @endif
             </div>
             <a href="#">ADD TO CART</a>
         </div>
+        @empty
         <div class="book-card">
             <div class="container">
                 <div class="image image2"></div>
@@ -45,40 +59,7 @@
             </div>
             <a href="#">BUY PRODUCT</a>
         </div>
-
-        <div class="book-card">
-            <div class="container">
-                <div class="image image4"></div>
-            </div>
-            <h2>Back Home</h2>
-            <div class="span">
-                <span>$12.00</span>
-                <del>$18.00</del>
-            </div>
-            <a href="#">BUY PRODUCT</a>
-        </div>
-        <div class="book-card">
-            <div class="container">
-                <div class="image image5"></div>
-            </div>
-            <h2>Bright Skies</h2>
-            <div class="span">
-                <span>$14.00</span>
-                <del>$17.00</del>
-            </div>
-            <a href="#">ADD TO CART</a>
-        </div>
-        <div class="book-card">
-            <div class="container">
-                <div class="image image6"></div>
-            </div>
-            <h2>Fairy Journey</h2>
-            <div class="span">
-                <span>$11.00</span>
-                <del>$16.00</del>
-            </div>
-            <a href="#">BUY PRODUCT</a>
-        </div>
+        @endforelse
     </div>
     <div class="books-library">
         <div>
@@ -196,25 +177,30 @@
 <!-- Featured Book start -->
 <div class="featured-book">
     <div class="featured-book-content">
-        <p>Hand Picked Additions</p>
+        <p>{{ $featured->name }}</p>
         <h1>Featured Book</h1>
         <p>THE STORY</p>
-        <p>Wouldn’t you like to get away? Sometimes you want to go where everybody knows your name. And they’re
-            always glad you came. Makin their way the only way they know how</p>
+        <p>{{ $featured->short_details }}</p>
         <p>ABOUT SKY KINGDOM</p>
-        <p>Love exciting and new. Come aboard were expecting them. Love life’s sweetest reward Let it flow back to
-            you. These Happy Days are yours and mine Happy Days. “Movin’ on up to the east side.”</p>
-        <button><a href="#"> Learn More</a></button>
+        <div>
+            {!! Str::limit($featured->details, 350, '...') !!}
+        </div>
+        <button><a href="{{ route('book.details', $featured->slug) }}"> Learn More</a></button>
     </div>
     <div class="featured-book-img">
         <div class="featured-book-card">
             <div class="container featured-book-img-con">
                 <div class="image image7"></div>
             </div>
-            <h2>Sky Kingdom</h2>
+            <h2>{{ $featured->name }}</h2>
             <div class="span">
-                <span>$12.00</span>
-                <del>$18.00</del>
+                @if ($featured->discount > 0)
+                <span>${{ $featured->price }}</span>
+                <del>${{ $featured->discount }}</del>
+                @else
+                <span>${{ $featured->price }}</span>
+                @endif
+                
             </div>
             <div class="featured-book-img-con-btn">
                 <a href="#" class="featured-book-img-con-btn1">Read the Book</a>
@@ -244,18 +230,20 @@
 
 <!-- Fantasy-Reading-Adventure start -->
 <div class="fantasy-reading-adventure">
+    @foreach ($categories as $category)
     <div class="fantasy">
         <a href="#">
             <div class="fantasy-img">
-                <img src="images/category_fantasy.jpg" alt="">
+                <img src="{{ asset($category->image) }}" alt="">
             </div>
             <div class="fantasy-img-content">
-                <h1>Fantasy</h1>
-                <p>3 Items</p>
+                <h1>{{ $category->name }}</h1>
+                <p>{{ $category->products->count(); }} Items</p>
             </div>
         </a>
     </div>
-    <div class="reading">
+    @endforeach
+    {{-- <div class="reading">
         <a href="#">
             <div class="reading-img">
                 <img src="images/reading.jpg" alt="">
@@ -265,18 +253,8 @@
                 <p>Tips and Tricks</p>
             </div>
         </a>
-    </div>
-    <div class="adventure">
-        <a href="#">
-            <div class="adventure-img">
-                <img src="images/category_adventure.jpg" alt="">
-            </div>
-            <div class="adventure-img-content">
-                <h1>Adventure</h1>
-                <p>4 Items</p>
-            </div>
-        </a>
-    </div>
+    </div> --}}
+    
 </div>
 <!-- Fantasy-Reading-Adventure end -->
 

@@ -23,7 +23,7 @@
                             <li><a href="#">All Categories</a></li>
                             <li><a href="#">Coming Soon</a></li>
                             <li><a href="#">Events</a></li>
-                            <li><a href="#">About Me</a></li>
+                            <li><a href="{{ route('about.me') }}">About Me</a></li>
                         </ul>
                     </div>
                 </li>

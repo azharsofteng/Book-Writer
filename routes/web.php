@@ -9,7 +9,8 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Auth\CustomerController;
-use App\Http\Controllers\CustomerDashboardController;
+use App\Http\Controllers\Customer\CustomerDashboardController;
+use App\Http\Controllers\Website\AddToCartController;
 use App\Http\Controllers\Website\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +27,15 @@ use Illuminate\Support\Facades\Route;
 
 // Website 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/about-me', [HomeController::class, 'about'])->name('about.me');
+Route::get('/book/details/{slug}', [HomeController::class, 'bookDetails'])->name('book.details');
+
+// cart
+Route::get('/cart', [AddToCartController::class, 'Cart'])->name('shopping.cart');
+Route::get('add-to-cart/{id}', [AddToCartController::class, 'addToCart'])->name('add.to.cart');
+Route::patch('update-cart', [AddToCartController::class, 'update'])->name('update.cart');
+Route::delete('remove-from-cart', [AddToCartController::class, 'remove'])->name('remove.from.cart');
+
 
 // Customer Authentication
 Route::group(['middleware' => 'guest:customer'], function() {
@@ -38,6 +48,7 @@ Route::group(['middleware' => 'guest:customer'], function() {
 //Customer Dashboard 
 Route::group(['middleware' => 'customer'], function() {
     Route::get('/customer/dashboard', [CustomerDashboardController::class, 'index'])->name('customer.dashboard');
+    Route::get('/customer/logout', [CustomerController::class, 'logout'])->name('customer.logout');
 });
 
 // Authentication

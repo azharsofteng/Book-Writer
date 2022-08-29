@@ -17,7 +17,7 @@ class CustomerController extends Controller
 
     public function customerRegistration()
     {
-        return view('auth.customer.login');
+        return view('auth.customer.registration');
     }
 
     public function saveCustomer(Request $request)

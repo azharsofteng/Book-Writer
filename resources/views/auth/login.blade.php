@@ -35,7 +35,6 @@
                                             <div class="alert alert-success">{{ session('success') }}</div>
                                         @endif
                                         
-                                        @yield('main-content')
                                         <form action="{{ route('login.check') }}" method="POST">
                                             @csrf
                                             <div class="form-group">
@@ -63,7 +62,7 @@
                                         {{-- <a href="#!" class="forgot-password-link">Forgot password?</a> --}}
                                         <nav class="login-card-footer-nav">
                                             <a href="#!">Copyright &copy; {{ date('Y') }}</a>
-                                            <a href="#!">MMC</a>
+                                            <a href="#!">{{ $content->name }}</a>
                                         </nav>
                                     </div>
                                 </div>
