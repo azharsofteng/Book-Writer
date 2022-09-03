@@ -100,3 +100,29 @@ body {
     font-size: 14px;
     color: #919aa3;
 }
+
+
+.login-area {
+    margin: 50px 0;
+    box-shadow: 0px 0px 30px rgb(127 137 161 / 30%);
+    padding: 30px;
+}
+
+.login-area .heading {
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    text-align: center;
+    position: relative;
+    color: #1C3C72;
+}
+
+.login-area .dont-have {
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+.btn-outline-info, .btn-outline-info:hover {
+    background-color: #1C3C72;
+    border-color: #1C3C72;
+    color: #fff;
+}

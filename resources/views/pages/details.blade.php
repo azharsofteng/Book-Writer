@@ -1,12 +1,15 @@
 @extends('layouts.web_master')
 @section('title', 'Book Details')
+@push('web-css')
+    <link rel="stylesheet" href="{{ asset('css/details.css') }}">
+@endpush
 @section('web-content')
  <!-- full-book-details-page start -->
  <div class="full-book-details-page">
     <!-- book-details-head start -->
     <div class="book-details-head">
         <div class="book-details-head-img">
-            <img src="./Image/book-1.jpg" alt="book-1">
+            <img src="{{ asset($product->image) }}" alt="book-1">
             <div class="book-details-head-icon">
                 <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
                 <a href="#"><i class="fa-brands fa-twitter"></i></a>
@@ -15,15 +18,15 @@
             </div>
         </div>
         <div class="book-details-head-content">
-            <h1>Glittering Stars</h1>
-            <p>The Caterpillar and Alice looked at each other for some time in silence: at last the Caterpillar took
-                the hookah out of its mouth, and addressed her in a languid, sleepy voice.There seemed to be no use
-                in waiting by the little door, so she went back to the table, half hoping she might find another key
-                on it, or at any rate a book of rules for shutting people up like telescopes: this time she found a
-                little bottle on it.</p>
+            <h1>{{ $product->name }}</h1>
+            <p>{{ $product->short_details }}</p>
             <div class="book-details-head-price">
-                <span>$12.00</span>
-                <del>$15.00</del>
+                @if ($product->discount > 0)
+                    <span>${{ $product->price - $product->discount }}</span>
+                    <del>${{ $product->price }}</del>
+                @else
+                    <span>${{ $product->price }}</span>
+                @endif
             </div>
             <div class="full-inc-dec">
                 <div class="inc-dec">

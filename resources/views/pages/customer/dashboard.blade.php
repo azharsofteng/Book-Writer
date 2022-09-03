@@ -1,16 +1,6 @@
 @extends('pages.customer.index')
 @section('customer')
 <section id="dashboard">
-    <nav class="navbar navbar-expand-lg bg-light">
-        <div class="container">
-            <a class="navbar-brand" href="#">{{ $content->name }}</a>
-            <a class="navbar-brand" href="{{ route('customer.logout') }}">Logout</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-        </div>
-    </nav>
     <div class="container">
         <div class="row mt-5">
             <div class="col-md-3">

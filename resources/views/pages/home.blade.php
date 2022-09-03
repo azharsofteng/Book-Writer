@@ -1,6 +1,29 @@
 @extends('layouts.web_master')
 @section('title', 'Home')
+@push('web-css')
+    <style>
+        header {
+            background: url('{{ $banner->image }}') no-repeat center center;
+            background-size: cover;
+            height: 100vh;
+        }
+    </style>
+@endpush
 @section('web-content')
+<!-- Nav-Bar End-->
+<header>
+    <!-- head-title start -->
+    <div class="head-title">
+        <h1>Hello <br> I'm <span>Dr. Iftekhar Ahmed Shams</span></h1>
+        <h6>{{ $banner->title }}</h6>
+        <p>{{ $banner->sub_title }}</p>
+        <div class="head-btn">
+            <button><a href="{{ $banner->btn_url }}" class="head-btn1">Latest Books</a></button>
+            {{-- <button><a href="#" class="head-btn2">Buy Theme</a></button> --}}
+        </div>
+    </div>
+    <!-- head-title end -->
+</header>
 <!-- midel-content-one start-->
 <div class="midel-content-one">
     <img src="images/black-leaf.png" alt="black-leaf">
@@ -12,10 +35,10 @@
 <!-- book-list start -->
 <div class="book-list">
     <div class="books">
-        @forelse ($products as $book)
+        @forelse ($products as $key => $book)
         <style>
-            .image,
-            .image::before {
+            .image{{ $key }},
+            .image{{ $key }}::before {
                 background-image: url("{{ $book->image }}");
                 background-size: cover;
                 background-repeat: no-repeat;
@@ -23,18 +46,20 @@
         </style>
         <div class="book-card">
             <div class="container">
-                <a href="{{ route('book.details', $book->slug) }}"><div class="image"></div></a>
+                <a href="{{ route('book.details', $book->slug) }}">
+                    <div class="image image{{ $key }}" ></div>
+                </a>
             </div>
             <h2>{{ $book->name }}</h2>
             <div class="span">
                 @if ($book->discount > 0)
-                <span>${{ $book->price }}</span>
-                <del>${{ $book->discount }}</del>
+                <span>${{ $book->price - $book->discount }}</span>
+                <del>${{ $book->price }}</del>
                 @else
                 <span>${{ $book->price }}</span>
                 @endif
             </div>
-            <a href="#">ADD TO CART</a>
+            <a href="{{ route('add.to.cart', $book->id) }}">ADD TO CART</a>
         </div>
         @empty
         <div class="book-card">
@@ -63,12 +88,9 @@
     </div>
     <div class="books-library">
         <div>
-            <p>Hand Picked Additions.</p>
+            <p>{{ $new_book->name }}.</p>
             <h1>Newest Books in <br> Our Library</h1>
-            <p>Its a neighborly day in this beautywood a neighborly day for a beauty. Would you be mine? Could you
-                be
-                mine. So get a witch’s shawl on a broomstick you can crawl on. Were gonna pay a call on the Addams
-                Family? Michael Knight a young loner on a crusade to champion the cause of the innocent.</p>
+            <p>{{ Str::limit($new_book->short_details, 200, '...') }}</p>
             <button><a href="#">View All Books</a></button>
         </div>
     </div>
@@ -93,6 +115,33 @@
 
 <!-- owl-carousel start -->
 <div class="owl-carousel owl-theme">
+    @forelse ($products as $key => $item)
+    <div class="item">
+    <style>
+        .image{{ $key }},
+        .image{{ $key }}::before {
+            background-image: url("{{ $item->image }}");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+        <div class="container">
+            <div class="image image{{ $key }}"></div>
+        </div>
+        <div class="owl-carousel-content">
+            <h2>{{ $item->name }}</h2>
+            <div class="span">
+                @if ($item->discount > 0)
+                    <span>${{ $item->price -  $item->discount }}</span>
+                    <del>${{ $item->price }}</del>
+                @else
+                    <span>${{ $item->price }}</span>
+                @endif
+            </div>
+            <a href="#">BUY PRODUCT</a>
+        </div>
+    </div>
+    @empty
     <div class="item">
         <div class="container">
             <div class="image"></div>
@@ -119,63 +168,21 @@
             <a href="#">BUY PRODUCT</a>
         </div>
     </div>
-    <div class="item">
-        <div class="container">
-            <div class="image image3"></div>
-        </div>
-        <div class="owl-carousel-content">
-            <h2>Magic Corner</h2>
-            <div class="span">
-                <span>$11.00</span>
-                <del>$16.00</del>
-            </div>
-            <a href="#">BUY PRODUCT</a>
-        </div>
-    </div>
-    <div class="item">
-        <div class="container">
-            <div class="image image4"></div>
-        </div>
-        <div class="owl-carousel-content">
-            <h2>Back Home</h2>
-            <div class="span">
-                <span>$11.00</span>
-                <del>$16.00</del>
-            </div>
-            <a href="#">BUY PRODUCT</a>
-        </div>
-    </div>
-    <div class="item">
-        <div class="container">
-            <div class="image image5"></div>
-        </div>
-        <div class="owl-carousel-content">
-            <h2>Bright Skies</h2>
-            <div class="span">
-                <span>$11.00</span>
-                <del>$16.00</del>
-            </div>
-            <a href="#">BUY PRODUCT</a>
-        </div>
-    </div>
-    <div class="item">
-        <div class="container">
-            <div class="image image6"></div>
-        </div>
-        <div class="owl-carousel-content">
-            <h2>Fairy Journey</h2>
-            <div class="span">
-                <span>$11.00</span>
-                <del>$16.00</del>
-            </div>
-            <a href="#">BUY PRODUCT</a>
-        </div>
-    </div>
+    @endforelse
 </div>
 <!-- owl-carousel end -->
 
 <!-- Featured Book start -->
+@if (isset($featured))
 <div class="featured-book">
+    <style>
+        .image7,
+        .image7::before {
+            background-image: url('{{ $featured->image }}');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
     <div class="featured-book-content">
         <p>{{ $featured->name }}</p>
         <h1>Featured Book</h1>
@@ -188,6 +195,7 @@
         <button><a href="{{ route('book.details', $featured->slug) }}"> Learn More</a></button>
     </div>
     <div class="featured-book-img">
+        
         <div class="featured-book-card">
             <div class="container featured-book-img-con">
                 <div class="image image7"></div>
@@ -195,8 +203,8 @@
             <h2>{{ $featured->name }}</h2>
             <div class="span">
                 @if ($featured->discount > 0)
-                <span>${{ $featured->price }}</span>
-                <del>${{ $featured->discount }}</del>
+                <span>${{ $featured->price - $featured->discount }}</span>
+                <del>${{ $featured->price }}</del>
                 @else
                 <span>${{ $featured->price }}</span>
                 @endif
@@ -204,11 +212,12 @@
             </div>
             <div class="featured-book-img-con-btn">
                 <a href="#" class="featured-book-img-con-btn1">Read the Book</a>
-                <a href="#" class="featured-book-img-con-btn2">ADD TO CART</a>
+                <a href="{{ route('add.to.cart', $featured->id) }}" class="featured-book-img-con-btn2">ADD TO CART</a>
             </div>
         </div>
     </div>
 </div>
+@endif
 <!-- Featured Book end -->
 
 <!-- Product-content start -->

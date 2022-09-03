@@ -8,69 +8,70 @@
         <link rel="icon" href="{{ asset('images/M-favicon.png') }}" type="image/gif" sizes="16x16">
         <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="{{ asset('css/materialdesignicons.min.css') }}" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="{{ asset('css/bootstrap-4.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
         <link rel="stylesheet" href="{{ asset('css/login.css') }}" />
     </head>
     <body>
-        <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
+        @include('pages.customer.navbar')
+        <section>
             <div class="container">
-                <div class="row">
-                    <div class="col-md-10 mx-auto">
-                        <div class="card login-card">
-                            <div class="row no-gutters">
-                                <div class="col-md-6">
-                                    <img src="{{ asset('images/login-otp-banner.webp') }}" alt="login" class="login-card-img" />
+                <div class="row justify-content-center mt-5">
+                    <div class="col-md-5">
+                        <div class="login-area">
+                            <h4 class="heading">Sign In</h4>
+                            @if (session('error'))
+                                <div class="alert alert-danger">{{ session('error') }}</div>
+                            @endif
+
+                            @if (session('success'))
+                                <div class="alert alert-success">{{ session('success') }}</div>
+                            @endif
+                            <form action="{{ route('customer.login.check') }}" method="POST">
+                                @csrf
+                                <div class="mb-3">
+                                    <label for="email" class="">E-mail Address <span class="text-danger">*</span> </label>
+                                    <input type="email" name="email" value="{{ old('email') }}" class="form-control shadow-none @error('email') is-invalid @enderror" id="email" />
+                                    @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="card-body">
-                                        <div class="brand-wrapper">
-                                            <img src="{{ asset($content->logo) }}" alt="logo" class="logo" />
+
+                                <div class="mb-2">
+                                    <label for="password" class="">Password <span class="text-danger">*</span> </label>
+                                    <input type="password" name="password" class="form-control shadow-none @error('password') is-invalid @enderror" id="password" />
+                                    @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+
+                                <div class="clearfix my-3">
+                                    <div class="float-left">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" name="remember" class="custom-control-input" id="remember-me" />
+                                            <label class="custom-control-label" for="remember-me">Remember me</label>
                                         </div>
-                                        <p class="login-card-description">Sigin into your account</p>
-                                        @if (session('error'))
-                                            <div class="alert alert-danger">{{ session('error') }}</div>
-                                        @endif
-        
-                                        @if (session('success'))
-                                            <div class="alert alert-success">{{ session('success') }}</div>
-                                        @endif
-                                        
-                                        <form action="{{ route('customer.login.check') }}" method="POST">
-                                            @csrf
-                                            <div class="form-group">
-                                                <label for="email" class="sr-only">E-mail</label>
-                                                <input type="text" name="email" id="email" class="form-control @error('email') is-invalid @enderror shadow-none" value="{{ old('email') }}" placeholder="email" />
-                                                @error('email')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-        
-                                            </div>
-                                            <div class="form-group mb-4">
-                                                <label for="password" class="sr-only">Password</label>
-                                                <input type="password" name="password" id="password" value="{{ old('password') }}" class="form-control @error('phone') is-invalid @enderror shadow-none" placeholder="Password" />
-                                                @error('password')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                                            </div>
-                                            <input type="submit" name="login" id="login" class="btn btn-block login-btn mb-4 shadow-none"  value="Login" />
-        
-                                        </form>
-                                        {{-- <a href="#!" class="forgot-password-link">Forgot password?</a> --}}
-                                        <nav class="login-card-footer-nav">
-                                            <p>Don’t have an account? <a href="{{ route('customer.registration') }}">Sign up</a></p>
-                                        </nav>
                                     </div>
                                 </div>
-                            </div>
+
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-outline-info btn-block">Login</button>
+                                </div>
+                            </form>
+
+                            <p class="dont-have">Don’t have an account? <a href="{{ route('customer.registration') }}">Sign up</a></p>
                         </div>
                     </div>
                 </div>
             </div>
-        </main>
+        </section>
         <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
         <script src="{{ asset('js/bootstrap-4.min.js') }}"></script>
         <script>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Website;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Brian2694\Toastr\Facades\Toastr;
 
 class AddToCartController extends Controller
 {
@@ -27,7 +28,7 @@ class AddToCartController extends Controller
                 "name" => $product->name,
                 "quantity" => 1,
                 "price" => $product->price,
-                "image" => $product->cover_picture
+                "image" => $product->image
             ];
         }
           
@@ -37,7 +38,9 @@ class AddToCartController extends Controller
     public function addToCart($id)
     {
         $this->AddCart($id);   
-        return redirect()->back()->with('success', 'Product added to cart successfully!');
+        Toastr::success('Product added!', 'Success', ["positionClass" => "toast-top-right","closeButton" => true,
+            "progressBar" => true]);
+        return redirect()->back();
     }
     public function checkout($id)
     {
@@ -52,7 +55,8 @@ class AddToCartController extends Controller
             $cart = session()->get('cart');
             $cart[$request->id]["quantity"] = $request->quantity;
             session()->put('cart', $cart);
-            session()->flash('success', 'Cart updated successfully');
+            Toastr::success('Cart updated successfully!', 'Success', ["positionClass" => "toast-top-right","closeButton" => true,
+            "progressBar" => true]);
         }
     }
   
@@ -65,7 +69,8 @@ class AddToCartController extends Controller
                 unset($cart[$request->id]);
                 session()->put('cart', $cart);
             }
-            session()->flash('success', 'Product removed successfully');
+            Toastr::success('Product removed successfully!', 'Success', ["positionClass" => "toast-top-right","closeButton" => true,
+            "progressBar" => true]);
         }
     }
 }

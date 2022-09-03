@@ -30,7 +30,7 @@
                 </a>
                 <div class="collapse" id="collapsOrder" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                        <a class="nav-link" href="#">Static Navigation</a>
+                        <a class="nav-link" href="{{ route('order.list') }}">Order List</a>
                     </nav>
                 </div>
 

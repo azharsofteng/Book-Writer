@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class CustomerController extends Controller
 {
@@ -22,6 +23,7 @@ class CustomerController extends Controller
 
     public function saveCustomer(Request $request)
     {
+        // dd($request->all());
         $request->validate([
             'name' => 'required|string|min:3',
             'email' => 'required|email|unique:customers,email',
@@ -31,8 +33,10 @@ class CustomerController extends Controller
         $customer = new Customer();
         $customer->name = $request->name;
         $customer->email = $request->email;
+        $customer->address = $request->address;
         $customer->phone = $request->phone;
-        $customer->password = bcrypt($request->password);
+        $customer->status = 'a';
+        $customer->password = Hash::make($request->password);
         $customer->save();
 
         if ($customer) {
@@ -62,7 +66,7 @@ class CustomerController extends Controller
         }
         return redirect()->back()
             ->withInput($request->only('phone'))
-            ->with('error', 'Phone number or Password was invalid.');
+            ->with('error', 'Email number or Password was invalid.');
 
     }
 

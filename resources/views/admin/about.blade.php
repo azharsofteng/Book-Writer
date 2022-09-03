@@ -1,5 +1,12 @@
 @extends('layouts.master')
 @section('title', 'Update About')
+@push('web-css')
+    <style>
+        ul li a {
+            color: #000 !important;
+        }
+    </style>
+@endpush
 @section('main-content')
 <main>
     <div class="container-fluid" id="Category">

@@ -7,76 +7,76 @@
         <title>Author | Customer Login</title>
         <link rel="icon" href="{{ asset('images/M-favicon.png') }}" type="image/gif" sizes="16x16">
         <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="{{ asset('css/materialdesignicons.min.css') }}" />
         <link rel="stylesheet" href="{{ asset('css/bootstrap-4.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
         <link rel="stylesheet" href="{{ asset('css/login.css') }}" />
     </head>
     <body>
-        <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-10 mx-auto">
-                        <div class="card login-card">
-                            <div class="row no-gutters">
-                                <form action="{{ route('customer.login.check') }}" method="POST">
-                                    <div class="card-body">
-                                        <p class="login-card-description">CREATE AN ACCOUNT</p>
-                                        @if (session('error'))
-                                            <div class="alert alert-danger">{{ session('error') }}</div>
-                                        @endif
-        
-                                        @if (session('success'))
-                                            <div class="alert alert-success">{{ session('success') }}</div>
-                                        @endif
-                                        <div class="col-md-6">
-                                            
-                                        </div>
-                                        <div class="col-md-6">
-                                            
-                                                @csrf
-                                                <div class="form-group">
-                                                    <label for="email" class="sr-only">E-mail</label>
-                                                    <input type="text" name="email" id="email" class="form-control @error('email') is-invalid @enderror shadow-none" value="{{ old('email') }}" placeholder="email" />
-                                                    @error('email')
-                                                        <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
-                                                        </span>
-                                                    @enderror
-            
-                                                </div>
-                                                <div class="form-group mb-4">
-                                                    <label for="password" class="sr-only">Password</label>
-                                                    <input type="password" name="password" id="password" value="{{ old('password') }}" class="form-control @error('phone') is-invalid @enderror shadow-none" placeholder="Password" />
-                                                    @error('password')
-                                                        <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
-                                                        </span>
-                                                    @enderror
-                                                </div>
-                                                <input type="submit" name="login" id="login" class="btn btn-block login-btn mb-4 shadow-none"  value="Login" />
-            
-                                                {{-- <a href="#!" class="forgot-password-link">Forgot password?</a> --}}
-                                                <nav class="login-card-footer-nav">
-                                                <a href="#!">Copyright &copy; {{ date('Y') }}</a>
-                                                <a href="#!">MMC</a>
-                                            </nav>
-                                        </div>
-                                    </div>
-                                </form>
+        @include('pages.customer.navbar')
+        <div class="container">
+            <div class="row justify-content-center mt-5 py-md-0">
+                <div class="col-md-8">
+                    <div class="login-area">
+                        <h4 class="heading">Create an Account</h4>
+                        <form method="POST" action="{{ route('customer.store') }}" enctype="multipart/form-data">
+                            @csrf
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="name">Full Name <span class="text-danger">*</span> </label>
+                                    <input type="text" name="name" value="{{ old('name') }}" class="form-control @error('name') is-invalid @enderror shadow-none" id="name" />
+                                    @error('name')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="email">E-Mail Address <span class="text-danger">*</span></label>
+                                    <input type="email" name="email" value="{{ old('email') }}" class="form-control @error('email') is-invalid @enderror shadow-none" id="email" />
+                                    @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="phone">Phone Number </label>
+                                    <input type="text" name="phone" value="{{ old('phone') }}" class="form-control shadow-none" id="phone" />
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="address">Address</label>
+                                    <input type="text" name="address" value="{{ old('address') }}" class="form-control shadow-none" id="address" />
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="password">Password <span class="text-danger">*</span> </label>
+                                    <input type="password" name="password" value="{{ old('password') }}" class="form-control @error('password') is-invalid @enderror shadow-none" id="password" />
+                                    @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="password_confirmation">Confirm Password <span class="text-danger">*</span> </label>
+                                    <input type="password" name="password_confirmation" value="" class="form-control shadow-none" id="password_confirmation" />
+                                </div>
                             </div>
-                        </div>
+        
+                            <div class="clearfix mt-1">
+                                <div class="float-md-left">
+                                    <button type="submit" class="btn btn-outline-info">Sign Up</button>
+                                    <button type="reset" class="btn btn-dark">Reset</button>
+                                </div>
+                                <div class="float-md-right mt-2 d-block">Already have an account? <a href="{{ route('customer.login') }}">Sign in</a></div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
-        </main>
-        <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
-        <script src="{{ asset('js/bootstrap-4.min.js') }}"></script>
-        <script>
-            $("document").ready(function(){
-                setTimeout(function(){
-                $("div.alert").remove();
-                }, 3000 ); // 5 secs
-            });
-        </script>
+        </div>        
     </body>
 </html>

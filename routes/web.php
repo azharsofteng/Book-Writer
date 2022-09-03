@@ -1,18 +1,19 @@
 <?php
 
-use App\Http\Controllers\Admin\AboutController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\BlogController;
-use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\admin\OrderController;
+use App\Http\Controllers\Website\HomeController;
 use App\Http\Controllers\Admin\ContentController;
-use App\Http\Controllers\Auth\AuthenticationController;
-use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Auth\CustomerController;
-use App\Http\Controllers\Customer\CustomerDashboardController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Website\AddToCartController;
-use App\Http\Controllers\Website\HomeController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\AuthenticationController;
+use App\Http\Controllers\Customer\CustomerDashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about-me', [HomeController::class, 'about'])->name('about.me');
 Route::get('/book/details/{slug}', [HomeController::class, 'bookDetails'])->name('book.details');
+Route::get('/categories', [HomeController::class, 'category'])->name('category');
+Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+Route::get('/shop', [HomeController::class, 'shop'])->name('shop');
 
 // cart
 Route::get('/cart', [AddToCartController::class, 'Cart'])->name('shopping.cart');
@@ -41,7 +45,7 @@ Route::delete('remove-from-cart', [AddToCartController::class, 'remove'])->name(
 Route::group(['middleware' => 'guest:customer'], function() {
     Route::get('/customer/login', [CustomerController::class, 'customerLogin'])->name('customer.login');
     Route::get('/customer/registration', [CustomerController::class, 'customerRegistration'])->name('customer.registration');
-    Route::post('/customer/registration', [CustomerController::class, 'saveCustomer'])->name('customer.store');
+    Route::post('/customer/store', [CustomerController::class, 'saveCustomer'])->name('customer.store');
     Route::post('/customer/login', [CustomerController::class, 'loginCheck'])->name('customer.login.check');
 });
 
@@ -49,6 +53,16 @@ Route::group(['middleware' => 'guest:customer'], function() {
 Route::group(['middleware' => 'customer'], function() {
     Route::get('/customer/dashboard', [CustomerDashboardController::class, 'index'])->name('customer.dashboard');
     Route::get('/customer/logout', [CustomerController::class, 'logout'])->name('customer.logout');
+
+    // Customer Order
+    Route::post('place-order', [OrderController::class, 'PlaceOrder'])->name('place.order');
+    // Route::get('customer/order-list', [HomeController::class, 'orderList'])->name('customer.order.list');
+    Route::get('/checkout', [HomeController::class, 'CheckOut'])->name('checkout.cart');
+    
+    Route::get('/customer', [CustomerController::class, 'logout'])->name('customer.logout');
+
+    Route::get('/checkout/{id}', [AddToCartController::class, 'checkout'])->name('product.checkout');
+
 });
 
 // Authentication
@@ -103,4 +117,19 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/product/edit/{id}', [ProductController::class, 'edit'])->name('product.edit');
     Route::post('/product/update/{id}', [ProductController::class, 'update'])->name('product.update');
     Route::delete('/product/destroy/{id}', [ProductController::class, 'destroy'])->name('product.delete');
+
+    // order list
+    Route::get('order-list', [OrderController::class, 'orderList'])->name('order.list');
+    Route::delete('order-list/{id}', [OrderController::class, 'orderCancel'])->name('order.cancel');
+    Route::get('invoice/{id}', [OrderController::class, 'invoice'])->name('invoice');
+
+    Route::get('confirm-order/{id}', [OrderController::class, 'confirmOrder'])->name('confirm.order');
+    Route::get('process-order/{id}', [OrderController::class, 'processOrder'])->name('process.order');
+    Route::get('shipping-order/{id}', [OrderController::class, 'shippingOrder'])->name('shipping.order');
+    Route::get('delivered-order/{id}', [OrderController::class, 'deliveryOrder'])->name('delivered.order');
+
+    // customer list
+    Route::get('customer-list', [DashboardController::class, 'customerList'])->name('customer.list');
+    Route::delete('customer-list/{id}', [DashboardController::class, 'customerDestroy'])->name('customer.destroy');
+    
 });

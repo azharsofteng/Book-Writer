@@ -21,11 +21,12 @@
     @stack('web-css')
     <!-- css link -->
     <link rel="stylesheet" href="{{ asset('css/home-style.css') }}">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
 </head>
 
 <body>
     @include('partials.menu')
-
+    
     @yield('web-content')
 
 
@@ -41,7 +42,8 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- js link -->
     <script src="{{ asset('js/home-script.js') }}"></script>
-    
+    <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+        {!! Toastr::message() !!}
     @stack('web-js')
 </body>
 

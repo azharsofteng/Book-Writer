@@ -6,12 +6,6 @@
     box-sizing: border-box;
 }
 
-header {
-    background: url('../images/top-bg.png') no-repeat center center;
-    background-size: cover;
-    height: 100vh;
-}
-
 
 /* scroll-active start*/
 .scroll-active {
@@ -230,7 +224,7 @@ nav ul li {
     background-position: -70px 180px !important;
     width: 600px;
     height: 500px;
-    background-color: #fff;
+    background-color: hsl(0, 0%, 100%, 0.9);
     bottom: 15%;
     left: 10%;
     padding: 80px;
@@ -238,7 +232,7 @@ nav ul li {
 }
 
 .head-title h1 {
-    font-size: calc(30px + (60 - 30) * (100vw - 320px) / (1920 - 320));
+    font-size: calc(25px + (40 - 25) * (100vw - 320px) / (1920 - 320));
     font-family: 'Quicksand', sans-serif;
     margin-bottom: 20px;
     color: #484848;
@@ -447,7 +441,7 @@ nav ul li {
     background-repeat: no-repeat;
 }
 
-.image3,
+/* .image3,
 .image3::before {
     background-image: url("../images/book-3.jpg");
     background-size: cover;
@@ -473,7 +467,7 @@ nav ul li {
     background-image: url("../images/book-6.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-}
+} */
 
 .image:hover {
     transform: rotateY(40deg) scale(0.9);
@@ -757,13 +751,6 @@ nav ul li {
     perspective: 1000px;
     cursor: pointer;
     margin-bottom: 15px;
-}
-
-.image7,
-.image7::before {
-    background-image: url("../images/book-7.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
 }
 
 .featured-book-img-con-btn {
@@ -1116,12 +1103,56 @@ nav ul li {
 /* footer end  */
 
 
-
-
-
-
-
-
+/* all categories start */
+.categories-top {
+    background: url("../images/glasses-g25ca49115_1920.jpg");
+    background-size: cover;
+    height: 60vh;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+  }
+  .categories-top h1 {
+    color: #f66e5e;
+    font-size: calc(25px + (45 - 25) * (100vw - 320px) / (1920 - 320));
+  }
+  .categories-top span {
+    color: #000;
+    font-family: "Euphoria Script";
+  }
+  
+  .categorise-content {
+    background-color: #fafafa;
+    padding: 5% 20%;
+  }
+  .categorise-blog {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    grid-gap: 4rem;
+    margin-bottom: 10%;
+  }
+  .categorise-blog img {
+    width: 100%;
+  }
+  .categorise-blog h1 {
+    font-size: calc(25px + (45 - 25) * (100vw - 320px) / (1920 - 320));
+    color: #484848;
+    font-weight: 300;
+    margin-bottom: 20px;
+  }
+  .categorise-blog span{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+  }
+  .categorise-blog p{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 20px;
+    color: #949494;
+    line-height: 27px;
+  }
+  /* all categories end */
+  
 
 
 /*=============== MEDIA QUERIES ===============*/
