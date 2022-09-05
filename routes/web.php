@@ -32,6 +32,7 @@ Route::get('/about-me', [HomeController::class, 'about'])->name('about.me');
 Route::get('/book/details/{slug}', [HomeController::class, 'bookDetails'])->name('book.details');
 Route::get('/categories', [HomeController::class, 'category'])->name('category');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+Route::post('/contact/store', [HomeController::class, 'messageStore'])->name('contact.store');
 Route::get('/shop', [HomeController::class, 'shop'])->name('shop');
 
 // cart

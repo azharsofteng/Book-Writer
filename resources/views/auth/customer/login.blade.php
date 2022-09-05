@@ -19,7 +19,7 @@
         @include('pages.customer.navbar')
         <section>
             <div class="container">
-                <div class="row justify-content-center mt-5">
+                <div class="row justify-content-center my-4">
                     <div class="col-md-5">
                         <div class="login-area">
                             <h4 class="heading">Sign In</h4>
@@ -72,6 +72,7 @@
                 </div>
             </div>
         </section>
+        @include('partials.web_footer')
         <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
         <script src="{{ asset('js/bootstrap-4.min.js') }}"></script>
         <script>

@@ -18,7 +18,7 @@
     <body>
         @include('pages.customer.navbar')
         <div class="container">
-            <div class="row justify-content-center mt-5 py-md-0">
+            <div class="row justify-content-center my-4 py-md-0">
                 <div class="col-md-8">
                     <div class="login-area">
                         <h4 class="heading">Create an Account</h4>
@@ -77,6 +77,7 @@
                     </div>
                 </div>
             </div>
-        </div>        
+        </div>     
+        @include('partials.web_footer')   
     </body>
 </html>

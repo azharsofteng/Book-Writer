@@ -23,6 +23,35 @@
         </ul>
         <div class="shop-book">
             <div class="books">
+                @forelse ($products as $key => $book)
+                <style>
+                    .image{{ $key }},
+                    .image{{ $key }}::before {
+                        background-image: url("{{ $book->image }}");
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                    }
+                </style>
+                <div class="book-card">
+                    <a href="{{ route('book.details', $book->slug) }}">
+                        <div class="container">
+                            <div class="image image{{ $key }}"></div>
+                        </div>
+                    </a>
+                    <a href="{{ route('book.details', $book->slug) }}">
+                        <h2>{{ $book->name }}</h2>
+                    </a>
+                    <div class="span">
+                        @if ($book->discount > 0)
+                        <span>${{ $book->price - $book->discount }}</span>
+                        <del>${{ $book->price }}</del>
+                        @else
+                        <span>${{ $book->price }}</span>
+                        @endif
+                    </div>
+                    <a class="add-to-cart" href="{{ route('add.to.cart', $book->id) }}">ADD TO CART</a>
+                </div>
+                @empty
                 <div class="book-card">
                     <a href="./bookDetailsPage.html">
                         <div class="container">
@@ -38,62 +67,7 @@
                     </div>
                     <a class="add-to-cart" href="#">ADD TO CART</a>
                 </div>
-                <div class="book-card">
-                    <div class="container">
-                        <div class="image image2"></div>
-                    </div>
-                    <h2>Little Explorers</h2>
-                    <div class="span">
-                        <span>$11.00</span>
-                        <del>$13.00</del>
-                    </div>
-                    <a class="add-to-cart" href="#">ADD TO CART</a>
-                </div>
-                <div class="book-card">
-                    <div class="container">
-                        <div class="image image3"></div>
-                    </div>
-                    <h2>Magic Corner</h2>
-                    <div class="span">
-                        <span>$15.00</span>
-                        <del>$16.00</del>
-                    </div>
-                    <a class="add-to-cart" href="#">BUY PRODUCT</a>
-                </div>
-    
-                <div class="book-card">
-                    <div class="container">
-                        <div class="image image4"></div>
-                    </div>
-                    <h2>Back Home</h2>
-                    <div class="span">
-                        <span>$12.00</span>
-                        <del>$18.00</del>
-                    </div>
-                    <a class="add-to-cart" href="#">BUY PRODUCT</a>
-                </div>
-                <div class="book-card">
-                    <div class="container">
-                        <div class="image image5"></div>
-                    </div>
-                    <h2>Bright Skies</h2>
-                    <div class="span">
-                        <span>$14.00</span>
-                        <del>$17.00</del>
-                    </div>
-                    <a class="add-to-cart" href="#">ADD TO CART</a>
-                </div>
-                <div class="book-card">
-                    <div class="container">
-                        <div class="image image6"></div>
-                    </div>
-                    <h2>Fairy Journey</h2>
-                    <div class="span">
-                        <span>$11.00</span>
-                        <del>$16.00</del>
-                    </div>
-                    <a class="add-to-cart" href="#">BUY PRODUCT</a>
-                </div>
+                @endforelse
             </div>
         </div>
         <div class="next-prev">
@@ -104,7 +78,6 @@
                 <li><a href="#">3</a></li>
                 <li><a href="#">4</a></li>
                 <li><a href="#"><i class="fa-solid fa-angles-right"></i></a></li>
-                
             </ul>
         </div>
     </div>

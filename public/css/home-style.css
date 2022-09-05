@@ -378,7 +378,7 @@ nav ul li {
 }
 
 .book-card a {
-    width: 50%;
+    /* width: 50%; */
     text-align: center;
     text-decoration: none;
     color: #484848;

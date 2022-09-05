@@ -58,17 +58,20 @@
    <div class="us-now">
        <h1>write to us now.</h1>
        <p>We are replying in the next 24 hours. Yes, we do!</p>
-       <div class="us-now-input">
-           <label for="name">Your Name (required)</label>
-           <input type="text" id="name">
-           <label for="email">Your Email (required)</label>
-           <input type="text" id="email">
-           <label for="subject">Subject</label>
-           <input type="text" id="subject">
-           <label>Your Message</label>
-           <textarea></textarea>
-           <button>Send</button>
-       </div>
+       <form action="{{ route('contact.store') }}" method="POST">
+           @csrf
+            <div class="us-now-input">
+                <label for="name">Your Name (required)</label>
+                <input type="text" name="name" id="name" required>
+                <label for="email">Your Email (required)</label>
+                <input type="email" name="email" id="email" required>
+                <label for="subject">Subject</label>
+                <input type="text" name="subject" id="subject">
+                <label for="message">Your Message</label>
+                <textarea id="message" name="message"></textarea>
+                <button type="submit">Send</button>
+            </div>
+        </form>
    </div>
 <!-- us-now end -->
 </div>

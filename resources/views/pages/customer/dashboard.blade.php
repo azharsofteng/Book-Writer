@@ -1,4 +1,5 @@
 @extends('pages.customer.index')
+@section('title', 'Dashboard')
 @section('customer')
 <section id="dashboard">
     <div class="container">

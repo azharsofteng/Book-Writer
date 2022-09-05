@@ -1,4 +1,14 @@
 /* about-head start */
+ul li a {
+  color: #000 !important;
+  /* margin-left: 10px; */
+}
+.nav-right1 .fa-user {
+  color: #000 !important;
+}
+.nav-right1 {
+  border-left: 1px solid #000 !important;
+}
 .about-head {
   width: 100vw;
   height: auto;
