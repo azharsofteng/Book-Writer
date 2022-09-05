@@ -73,9 +73,6 @@ Route::group(['middleware' => ['guest']], function() {
     Route::post('/admin/login', [AuthenticationController::class, 'authCheck'])->name('login.check');
 });
 
-Route::get('/table', [DashboardController::class, 'table'])->name('table');
-Route::get('/form', [DashboardController::class, 'form'])->name('form');
-
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/logout', [AuthenticationController::class, 'logout'])->name('logout');
@@ -132,5 +129,9 @@ Route::group(['middleware' => ['auth']], function() {
     // customer list
     Route::get('customer-list', [DashboardController::class, 'customerList'])->name('customer.list');
     Route::delete('customer-list/{id}', [DashboardController::class, 'customerDestroy'])->name('customer.destroy');
+
+    // public message
+    Route::get('/public/message', [DashboardController::class, 'message'])->name('message.list');
+    Route::delete('/message/destroy/{id}', [DashboardController::class, 'deleteMessage'])->name('message.destroy');
     
 });
