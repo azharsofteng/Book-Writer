@@ -24,6 +24,8 @@ class CreateProductsTable extends Migration
             $table->float('discount')->nullable();
             $table->float('quantity')->nullable();
             $table->string('image');
+            $table->string('writer', 60)->nullable();
+            $table->string('writer_image')->nullable();
             $table->text('short_details');
             $table->text('details')->nullable();
             $table->tinyInteger('is_feature')->nullable();

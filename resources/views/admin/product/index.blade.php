@@ -3,7 +3,7 @@
 @push('admin-css')
    <style>
         .ck.ck-editor__main>.ck-editor__editable{
-            height: 150px;
+            height: 300px;
         }
     </style>
 @endpush
@@ -93,8 +93,26 @@
                                     <div>
                                         <img src="{{ (!empty(@$product)) ? asset(@$product->image) : asset('no-image.jpg') }}" id="previewImage" style="width: 100px; height: 100px; border: 1px solid #999; padding: 2px;" alt="">
                                     </div>
+                                    <label for="writer" class="col-form-label">Writer <span class="text-danger">*</span></label>
+                                    <input type="text" name="writer" id="writer" value="{{ isset($product) ? $product->writer : old('writer') }}" class="form-control shadow-none form-control-sm @error('writer') is-invalid @enderror" placeholder="Enter writer">
+                                    @error('writer')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                    <label for="writer_image" class="col-form-label">Writer Image <span class="text-danger">*</span></label>
+                                    <input type="file" name="writer_image" class="form-control shadow-none @error('writer_image') is-invalid @enderror" id="writer_image" onchange="readWriterURL(this);">
+                                    
+                                    @error('writer_image')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
 
-                                    <label for="is_feature" class="mt-3"><input type="checkbox" name="is_feature" value="1" id="is_feature"> Is Feature</label>
+                                    <div>
+                                        <img src="{{ (!empty(@$product)) ? asset(@$product->writer_image) : asset('no-image.jpg') }}" id="previewWriterImage" style="width: 100px; height: 80px; border: 1px solid #999; padding: 2px;" alt="">
+                                    </div>
+                                    <label for="is_feature" class="mt-1"><input type="checkbox" name="is_feature" value="1" id="is_feature"> Is Feature</label>
                                 </div>
                                 <div class="col-lg-8 col-md-6">
                                     <label for="Details" class="col-form-label">Details</label>
@@ -131,6 +149,8 @@
                                         <th>Price</th>
                                         <th>Discount</th>
                                         <th>Short Details</th>
+                                        <th>Writer</th>
+                                        <th>Writer Image</th>
                                         <th>Image</th>
                                         <th>Action</th>
                                     </tr>
@@ -144,6 +164,8 @@
                                         <td>{{ $item->price }}</td>
                                         <td>{{ $item->discount }}</td>
                                         <td>{{ Str::limit($item->short_details, 50, '...') }}</td>
+                                        <td>{{ $item->writer }}</td>
+                                        <td><img src="{{ asset($item->writer_image) }}" width="40" height="40" alt=""></td>
                                         <td><img src="{{ asset($item->image) }}" width="40" height="40" alt=""></td>
                                         <td>
                                             <a href="{{ route('product.edit', $item->id) }}" class="btn btn-edit edit-item"><i class="fas fa-edit"></i></a>
@@ -182,6 +204,15 @@
                 var reader    = new FileReader();
                 reader.onload = function(e){
                     $('#previewImage').attr('src',e.target.result).width(100).height(100);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        function readWriterURL(input){
+            if (input.files && input.files[0]) {
+                var reader    = new FileReader();
+                reader.onload = function(e){
+                    $('#previewWriterImage').attr('src',e.target.result).width(100).height(80);
                 };
                 reader.readAsDataURL(input.files[0]);
             }

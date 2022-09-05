@@ -33,7 +33,9 @@ class HomeController extends Controller
     public function bookDetails($slug)
     {
         $product =  Product::where('slug', $slug)->first();
-        return view('pages.details', compact('product'));
+        $more_products = Product::where('id', '!=', $product->id)->where('writer', $product->writer)->get()->take(6);
+        $cat_products = Product::where('id', '!=', $product->id)->where('category_id', $product->category_id)->get()->take(6);
+        return view('pages.details', compact('product', 'more_products', 'cat_products'));
     }
 
     public function category()

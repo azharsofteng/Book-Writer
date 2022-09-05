@@ -1,3 +1,13 @@
+ul li a {
+    color: #000 !important;
+    /* margin-left: 10px; */
+}
+.nav-right1 .fa-user {
+    color: #000 !important;
+}
+.nav-right1 {
+    border-left: 1px solid #000 !important;
+}
 /* full-book-details-page start  */
 .full-book-details-page {
     background-color: #fafafa;
@@ -89,7 +99,7 @@
     margin: 0 10px;
 }
 
-.add-to-cart-btn button {
+.add-to-cart-btn a {
     border: none;
     outline: none;
     margin: 13px;
@@ -101,9 +111,10 @@
     cursor: pointer;
     transition: 0.3s;
     font-weight: 600;
+    text-decoration: none;
 }
 
-.add-to-cart-btn button:hover {
+.add-to-cart-btn a:hover {
     color: #39baaf;
 }
 

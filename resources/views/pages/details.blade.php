@@ -35,7 +35,7 @@
                     <button>+</button>
                 </div>
                 <div class="add-to-cart-btn">
-                    <button>Add to Cart</button>
+                    <a href="{{ route('add.to.cart', $product->id) }}">Add to Cart</a>
                 </div>
             </div>
             <button class="read-book">Read the Book</button>
@@ -46,7 +46,8 @@
     <!-- book-details-middle-content start -->
     <div class="book-details-middle-content">
         <div class="book-details-middle-content-1">
-            <p><span class="frist-span"><span class="last-span">T</span></span>he Caterpillar and Alice looked at
+            {!! $product->details !!}
+            {{-- <p><span class="frist-span"><span class="last-span">T</span></span>he Caterpillar and Alice looked at
                 each other for some time in silence: at last the Caterpillar took the hookah out of its mouth, and
                 addressed her in a languid, sleepy voice.There seemed to be no use in waiting by the little door, so
                 she went back to the table, half hoping she might find another key on it, or at any rate a book of
@@ -55,21 +56,7 @@
                 Alice did not quite know what to say to this: so she helped herself to some tea and
                 bread-and-butter, and then turned to the Dormouse, and repeated her question. “Why did they live at
                 the bottom of a well?”</p>
-            <img src="./Image//img_trans.png" alt="img_trans">
-        </div>
-    </div>
-    <div class="book-details-middle-content">
-        <div class="book-details-middle-content-2">
-            <img src="./Image/trans_img2.png" alt="img_trans">
-            <p><span class="frist-span2"><span class="last-span2">A</span></span>lice did not quite know what to say
-                to this: so she helped herself to some tea and bread-and-butter, and then turned to the Dormouse,
-                and repeated her question. “Why did they live at the bottom of a well?”
-
-                The Caterpillar and Alice looked at each other for some time in silence: at last the Caterpillar
-                took the hookah out of its mouth, and addressed her in a languid, sleepy voice.There seemed to be no
-                use in waiting by the little door, so she went back to the table, half hoping she might find another
-                key on it, or at any rate a book of rules for shutting people up like telescopes: this time she
-                found a little bottle on it.</p>
+            <img src="./Image//img_trans.png" alt="img_trans"> --}}
         </div>
     </div>
     <!-- book-details-middle-content end -->
@@ -80,9 +67,9 @@
             <h1>Joyful and beautiful adventure. It will take you to landscapes never seen before!</h1>
 
             <div class="writer-content">
-                <img src="./Image/kareya-saleh-239146-unsplash.jpg" alt="">
+                <img src="{{ asset($product->writer_image) }}" alt="">
                 <div>
-                    <h3>Tiffany James</h3>
+                    <h3>{{ $product->writer }}</h3>
                     <p>Writer</p>
                 </div>
             </div>
@@ -92,30 +79,33 @@
 
     <!-- more book start -->
     <div class="more-book">
-        <h1>More From <span>Home, Sweet Home</span></h1>
+        <h1>More From <span>{{ $product->writer }}</span></h1>
         <div class="more-book-section">
+            @foreach ($more_products as $key => $book)
+            <style>
+                .image{{ $key }},
+                .image{{ $key }}::before {
+                    background-image: url("{{ asset($book->image) }}");
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                }
+            </style>
             <div class="book-card">
                 <div class="container">
-                    <div class="image image1"></div>
+                    <div class="image image{{ $key }}"></div>
                 </div>
-                <h2>Bright Skies</h2>
+                <h2>{{ $book->name }}</h2>
                 <div class="span">
-                    <span>$14.00</span>
-                    <del>$17.00</del>
+                    @if ($book->discount > 0)
+                        <span>${{ $book->price - $book->discount }}</span>
+                        <del>${{ $book->price }}</del>
+                    @else
+                        <span>${{ $book->price }}</span>
+                    @endif
                 </div>
-                <a class="add-to-cart" href="#">ADD TO CART</a>
+                <a class="add-to-cart" href="{{ route('add.to.cart', $book->id) }}">ADD TO CART</a>
             </div>
-            <div class="book-card">
-                <div class="container">
-                    <div class="image image2"></div>
-                </div>
-                <h2>Fairy Journey</h2>
-                <div class="span">
-                    <span>$11.00</span>
-                    <del>$16.00</del>
-                </div>
-                <a class="add-to-cart" href="#">BUY PRODUCT</a>
-            </div>
+            @endforeach
         </div>
     </div>
     <!-- more book end -->
@@ -169,28 +159,31 @@
     <div class="related-products">
         <h1>Related products</h1>
         <div class="related-products-section">
+            @foreach ($cat_products as $item)
+            <style>
+                .image{{ $key }},
+                .image{{ $key }}::before {
+                    background-image: url("{{ asset($book->image) }}");
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                }
+            </style>
             <div class="book-card">
                 <div class="container">
-                    <div class="image image1"></div>
+                    <div class="image image{{ $key }}"></div>
                 </div>
-                <h2>Bright Skies</h2>
+                <h2>{{ $item->name }}</h2>
                 <div class="span">
-                    <span>$14.00</span>
-                    <del>$17.00</del>
+                    @if ($item->discount > 0)
+                        <span>${{ $item->price - $item->discount }}</span>
+                        <del>${{ $item->price }}</del>
+                    @else
+                        <span>${{ $item->price }}</span>
+                    @endif
                 </div>
-                <a class="add-to-cart" href="#">ADD TO CART</a>
+                <a class="add-to-cart" href="{{ route('add.to.cart', $item->id) }}">ADD TO CART</a>
             </div>
-            <div class="book-card">
-                <div class="container">
-                    <div class="image image2"></div>
-                </div>
-                <h2>Fairy Journey</h2>
-                <div class="span">
-                    <span>$11.00</span>
-                    <del>$16.00</del>
-                </div>
-                <a class="add-to-cart" href="#">BUY PRODUCT</a>
-            </div>
+            @endforeach
         </div>
     </div>
     <!-- related products end -->

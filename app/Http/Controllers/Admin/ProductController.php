@@ -38,7 +38,9 @@ class ProductController extends Controller
             $product->discount = $request->discount;
             $product->quantity = $request->quantity;
             $product->details = $request->details;
+            $product->writer = $request->writer;
             $product->image = $this->imageUpload($request, 'image', 'uploads/product');
+            $product->writer_image = $this->imageUpload($request, 'writer_image', 'uploads/product');
             $product->is_feature = $request->is_feature;
             $product->ip = $request->ip();
             $product->save();
@@ -80,6 +82,13 @@ class ProductController extends Controller
                 $Image = $this->imageUpload($request, 'image', 'uploads/product');
             }
 
+            $WriterImage = $product->writer_image;
+            if ($request->hasFile('writer_image')) {
+                if (!empty($product->writer_image) && file_exists($product->writer_image)) 
+                    unlink($product->writer_image);
+                $WriterImage = $this->imageUpload($request, 'writer_image', 'uploads/product');
+            }
+
             $product->category_id = $request->category_id;
             $product->name = $request->name;
             $product->slug = Str::slug($request->name);
@@ -88,7 +97,9 @@ class ProductController extends Controller
             $product->discount = $request->discount;
             $product->quantity = $request->quantity;
             $product->details = $request->details;
+            $product->writer = $request->writer;
             $product->image = $Image;
+            $product->writer_image = $WriterImage;
             $product->is_feature = $request->is_feature;
             $product->ip = $request->ip();
             $product->save();
@@ -107,6 +118,9 @@ class ProductController extends Controller
             $product = Product::find($id);
             if (!empty($product->image) && file_exists($product->image)) {
                 unlink($product->image);
+            }
+            if (!empty($product->writer_image) && file_exists($product->writer_image)) {
+                unlink($product->writer_image);
             }
             $product->delete();
             return back();
