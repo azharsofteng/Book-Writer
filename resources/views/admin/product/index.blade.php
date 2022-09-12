@@ -112,7 +112,7 @@
                                     <div>
                                         <img src="{{ (!empty(@$product)) ? asset(@$product->writer_image) : asset('no-image.jpg') }}" id="previewWriterImage" style="width: 100px; height: 80px; border: 1px solid #999; padding: 2px;" alt="">
                                     </div>
-                                    <label for="is_feature" class="mt-1"><input type="checkbox" name="is_feature" value="1" id="is_feature"> Is Feature</label>
+                                    <label for="is_feature" class="mt-1"><input {{ @$product->is_feature == 1 ? 'checked' : '' }} type="checkbox" name="is_feature" value="1" id="is_feature"> Is Feature</label>
                                 </div>
                                 <div class="col-lg-8 col-md-6">
                                     <label for="Details" class="col-form-label">Details</label>
@@ -150,6 +150,7 @@
                                         <th>Discount</th>
                                         <th>Short Details</th>
                                         <th>Writer</th>
+                                        <th>Is Feature</th>
                                         <th>Writer Image</th>
                                         <th>Image</th>
                                         <th>Action</th>
@@ -165,6 +166,11 @@
                                         <td>{{ $item->discount }}</td>
                                         <td>{{ Str::limit($item->short_details, 50, '...') }}</td>
                                         <td>{{ $item->writer }}</td>
+                                        @if ($item->is_feature == 1)
+                                            <td class="badge bg-success mt-2">true</td>
+                                        @else
+                                            <td class="badge bg-danger mt-2">false</td>
+                                        @endif
                                         <td><img src="{{ asset($item->writer_image) }}" width="40" height="40" alt=""></td>
                                         <td><img src="{{ asset($item->image) }}" width="40" height="40" alt=""></td>
                                         <td>

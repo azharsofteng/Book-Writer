@@ -39,7 +39,7 @@
                                             @csrf
                                             <div class="form-group">
                                                 <label for="username" class="sr-only">Username</label>
-                                                <input type="text" name="username" id="username" class="form-control @error('username') is-invalid @enderror" value="{{ old('username') }}" placeholder="username" />
+                                                <input type="text" name="username" id="username" class="form-control shadow-none @error('username') is-invalid @enderror" value="{{ old('username') }}" placeholder="username" />
                                                 @error('username')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -49,7 +49,7 @@
                                             </div>
                                             <div class="form-group mb-4">
                                                 <label for="password" class="sr-only">Password</label>
-                                                <input type="password" name="password" id="password" value="{{ old('password') }}" class="form-control @error('phone') is-invalid @enderror" placeholder="Password" />
+                                                <input type="password" name="password" id="password" value="{{ old('password') }}" class="form-control shadow-none @error('phone') is-invalid @enderror" placeholder="Password" />
                                                 @error('password')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>

@@ -1,17 +1,16 @@
 <!-- footer start -->
 <div class="footer">
     <div class="footer-one">
-        <h1>Leona</h1>
-        <p>Leona is a modern and flexible <b> WordPress theme </b> for book writers and authors. </p>
-        <p>It features <b> WooCommerce </b> support, Elementor page builder.</p>
+        <h1>{{ $content->name }}</h1>
+        <p>{{ $content->short_details }}</p>
     </div>
     <div class="footer-two">
         <h3>Pages</h3>
-        <p><a href="#">About</a></p>
-        <p><a href="#">Contact</a></p>
-        <p><a href="#">Privacy Policy</a></p>
-        <p><a href="#">Terms & Conditions</a></p>
-        <p><a href="#">FAQs</a></p>
+        <p><a href="{{ route('about.me') }}">About</a></p>
+        <p><a href="{{ route('category') }}">Categories</a></p>
+        <p><a href="{{ route('shop') }}">Shop</a></p>
+        <p><a href="{{ route('blogs') }}">Blog</a></p>
+        <p><a href="{{ route('contact') }}">Contact</a></p>
     </div>
     <div class="footer-three">
         <h3>Newsletter</h3>

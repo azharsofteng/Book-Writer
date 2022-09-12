@@ -13,7 +13,7 @@
         <label for="check" class="checkbtn">
             <i class="fa-solid fa-bars"></i>
         </label>
-        <ul class="main-ul">
+        <ul class="main-ul mb-0">
             <li><a href="./home.html">Home</a></li>
             <li class="sub-item">
                 <a href="#" onclick="subFunction()">Pages</a><i class="fa fa-chevron-down"></i>
@@ -48,6 +48,7 @@
                 </a>
                 <div class="sub-menu sub-menu2">
                     <ul>
+                        <li><a href="{{ route('customer.dashboard') }}">Dashboard</a></li>
                         <li><a href="{{ route('customer.logout') }}">Log Out</a></li>
                     </ul>
                 </div>

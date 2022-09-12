@@ -42,7 +42,7 @@
                         @endif
                         <tr>
                             <td colspan="6" class="text-end">Sub Total :</td>
-                            <td class="text-center">{{ $total }} tk</td>
+                            <td class="text-center">${{ $total }}</td>
                         </tr>
                         <td colspan="7" class="text-end" style="padding:12px 10px !important">
                             <a href="{{ route('home') }}" class="continue_shopping btn-dark shadow-none"> < Continue Shopping</a>

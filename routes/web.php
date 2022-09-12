@@ -33,7 +33,8 @@ Route::get('/book/details/{slug}', [HomeController::class, 'bookDetails'])->name
 Route::get('/categories', [HomeController::class, 'category'])->name('category');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::post('/contact/store', [HomeController::class, 'messageStore'])->name('contact.store');
-Route::get('/shop', [HomeController::class, 'shop'])->name('shop');
+Route::get('/shop/{id?}', [HomeController::class, 'shop'])->name('shop');
+Route::get('/blogs', [HomeController::class, 'blog'])->name('blogs');
 
 // cart
 Route::get('/cart', [AddToCartController::class, 'Cart'])->name('shopping.cart');

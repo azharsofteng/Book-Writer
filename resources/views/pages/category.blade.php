@@ -18,6 +18,7 @@
                 <h1>{{ $category->name }}</h1>
                 <span>{{ $category->title }}</span>
                 <p>{{ $category->description }}</p>
+                <button class="cat-btn"><a href="{{ route('shop', $category->id) }}">View Books</a></button>
             </div>
             @else 
             <div>
@@ -34,6 +35,7 @@
                 <h1>{{ $category->name }}</h1>
                 <span>{{ $category->title }}</span>
                 <p>{{ $category->description }}</p>
+                <button class="cat-btn"><a href="{{ route('shop', $category->id) }}">View Books</a></button>
             </div>
             @endif
      

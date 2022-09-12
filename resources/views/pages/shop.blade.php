@@ -1,5 +1,5 @@
 @extends('layouts.web_master')
-@section('title', 'About Us')
+@section('title', 'Shop')
 @push('web-css')
     <link rel="stylesheet" href="{{ asset('css/shop.css') }}">
 @endpush
@@ -15,19 +15,19 @@
     </div>
     <!-- shop-head end -->
     <div class="shop-main-content">
-        <ul>
+        {{-- <ul>
             <li>Default</li>
             <li>Popular</li>
             <li>Rating</li>
             <li>Newest</li>
-        </ul>
+        </ul> --}}
         <div class="shop-book">
             <div class="books">
                 @forelse ($products as $key => $book)
                 <style>
                     .image{{ $key }},
                     .image{{ $key }}::before {
-                        background-image: url("{{ $book->image }}");
+                        background-image: url("../{{ $book->image }}");
                         background-size: cover;
                         background-repeat: no-repeat;
                     }
@@ -71,14 +71,15 @@
             </div>
         </div>
         <div class="next-prev">
-            <ul>
+            {!! $products->links() !!}
+            {{-- <ul>
                 <li><a href="#"><i class="fa-solid fa-angles-left"></i></a></li>
                 <li><a href="#">1</a></li>
                 <li><a href="#">2</a></li>
                 <li><a href="#">3</a></li>
                 <li><a href="#">4</a></li>
                 <li><a href="#"><i class="fa-solid fa-angles-right"></i></a></li>
-            </ul>
+            </ul> --}}
         </div>
     </div>
 </div>

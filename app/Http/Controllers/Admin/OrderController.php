@@ -14,7 +14,7 @@ class OrderController extends Controller
 {
     public function PlaceOrder(Request $request)
     {
-
+        // dd($request->all());
         $cart = json_decode($request->cart);
         $cart = array_values((array)$cart);
         DB::beginTransaction();
@@ -28,7 +28,7 @@ class OrderController extends Controller
             $order->address = $request->address;
             $order->shipping_address = $request->shipping_address ?? $request->address;
             $order->sub_total = $request->sub_total;
-            $order->shipping_cost = 50;
+            $order->shipping_cost = 0;
             $order->payment_type = 'cash';
             $order->note = $request->note;
             $order->save();
@@ -52,6 +52,8 @@ class OrderController extends Controller
             return back();
 
         } catch (\Exception $e) {
+            Toastr::error('Order Failed!', 'Error', ["positionClass" => "toast-top-right","closeButton" => true,
+            "progressBar" => true]);
             DB::rollBack();
             return back();
         }

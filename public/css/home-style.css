@@ -1151,6 +1151,25 @@ nav ul li {
     color: #949494;
     line-height: 27px;
   }
+
+.cat-btn {
+    margin-top: 15px;
+    border: none;
+    margin-right: 20px;
+    background-color: transparent;
+    font-size: 16px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    padding-bottom: 7px;
+    border-bottom: 2px solid #f66e5e;
+}
+.cat-btn a {
+    text-decoration: none;
+    color: #484848;
+    padding-bottom: 8px;
+    transition: 0.3s;
+}
   /* all categories end */
   
 

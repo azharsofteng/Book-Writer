@@ -54,9 +54,13 @@ class HomeController extends Controller
         return view('pages.contact');
     }
 
-    public function shop()
+    public function shop($id = null)
     {
-        $products = Product::latest()->paginate(9);
+        if(isset($id)){
+            $products = Product::where('category_id', $id)->latest()->paginate(9);
+        } else {
+            $products = Product::latest()->paginate(9);
+        }
         return view('pages.shop', compact('products'));
     }
 
@@ -64,7 +68,8 @@ class HomeController extends Controller
     public function blog()
     {
         $blogs = Blog::latest()->get();
-        return view('pages.blog', compact('blogs'));
+        $book = Product::latest()->first();
+        return view('pages.blog', compact('blogs', 'book'));
     }
 
 

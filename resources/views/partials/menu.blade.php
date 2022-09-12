@@ -27,7 +27,7 @@
                 </div>
             </li>
             <li><a href="{{ route('shop') }}">Shop</a></li>
-            <li><a href="#">Blog</a></li>
+            <li><a href="{{ route('blogs') }}">Blog</a></li>
             <li class="contact"><a href="{{ route('contact') }}">Content</a></li>
             @guest('customer')
             <li class="nav-right-icon nav-right1 sub-item">
@@ -50,6 +50,8 @@
                 </a>
                 <div class="sub-menu sub-menu2">
                     <ul>
+                        <li><a href="{{ route('customer.dashboard') }}">Dashboard</a></li>
+                        <br>
                         <li><a href="{{ route('customer.logout') }}">Log Out</a></li>
                     </ul>
                 </div>

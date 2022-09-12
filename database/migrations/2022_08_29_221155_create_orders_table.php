@@ -23,6 +23,7 @@ class CreateOrdersTable extends Migration
             $table->string('mobile');
             $table->string('email')->nullable();
             $table->text('address');
+            $table->text('shipping_address')->nullable();
             $table->decimal('sub_total', 18, 2)->default(0);
             $table->decimal('shipping_cost', 18, 2)->default(0);
             $table->string('payment_type')->nullable();

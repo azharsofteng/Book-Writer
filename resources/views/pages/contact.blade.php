@@ -1,23 +1,23 @@
 @extends('layouts.web_master')
-@section('title', 'About Us')
+@section('title', 'Contact Us')
 @push('web-css')
     <link rel="stylesheet" href="{{ asset('css/contact.css') }}">
 @endpush
 @section('web-content')
 <div class="contacts">
     <!-- contact-us start -->
-   <div class="contact-us">
-       <div class="contact-head">
-           <div class="contact-head-left">
-               <h1>Contact Us</h1>
-               <p>Have a question? Please ask!</p>
-           </div>
-           <div class="contact-head-right">
-               <p>Wouldn’t you like to get away? Sometimes you want to go where everybody knows your name. And they’re
-                   always glad you came. Makin their way the only way they know how.</p>
-           </div>
-       </div>
-       </div>
+    <div class="contact-us">
+        <div class="contact-head">
+            <div class="contact-head-left">
+                <h1>Contact Us</h1>
+                <p>Have a question? Please ask!</p>
+            </div>
+            <div class="contact-head-right">
+                <p>Wouldn’t you like to get away? Sometimes you want to go where everybody knows your name. And they’re
+                    always glad you came. Makin their way the only way they know how.</p>
+            </div>
+        </div>
+    </div>
    
    <!-- contact-us end -->
 
@@ -27,39 +27,39 @@
    <!-- map end -->
 
 
-   <!-- address-phone-email start -->
-   <div class="contact-address-phone-email">
-       <div class="contact-address">
-           <i class="fa-solid fa-location-dot"></i>
-           <h1>Address</h1>
-           <p>{{ $content->address }}</p>
-       </div>
-       <div class="contact-phone">
-           <i class="fa-solid fa-mobile-screen-button"></i>
-           <h1>Phone</h1>
-           <p>{{ $content->phone }}</p>
-       </div>
-       <div class="contact-email">
-           <i class="fa-solid fa-envelope"></i>
-           <h1>Email</h1>
-           <p>{{ $content->email }}</p>
-       </div>
-   </div>
+    <!-- address-phone-email start -->
+    <div class="contact-address-phone-email">
+        <div class="contact-address">
+            <i class="fa-solid fa-location-dot"></i>
+            <h1>Address</h1>
+            <p>{{ $content->address }}</p>
+        </div>
+        <div class="contact-phone">
+            <i class="fa-solid fa-mobile-screen-button"></i>
+            <h1>Phone</h1>
+            <p>{{ $content->phone }}</p>
+        </div>
+        <div class="contact-email">
+            <i class="fa-solid fa-envelope"></i>
+            <h1>Email</h1>
+            <p>{{ $content->email }}</p>
+        </div>
+    </div>
    <!-- address-phone-email end -->
 
-   <!-- leaf start -->
-   <div class="leaf">
-       <img src="./Image//leaf-1_2.png" alt="">
-       <hr>
-   </div>
-   <!-- leaf end -->
+    <!-- leaf start -->
+    <div class="leaf">
+        <img src="./Image//leaf-1_2.png" alt="">
+        <hr>
+    </div>
+    <!-- leaf end -->
 
-   <!-- us-now start -->
-   <div class="us-now">
-       <h1>write to us now.</h1>
-       <p>We are replying in the next 24 hours. Yes, we do!</p>
-       <form action="{{ route('contact.store') }}" method="POST">
-           @csrf
+    <!-- us-now start -->
+    <div class="us-now">
+        <h1>write to us now.</h1>
+        <p>We are replying in the next 24 hours. Yes, we do!</p>
+        <form action="{{ route('contact.store') }}" method="POST">
+            @csrf
             <div class="us-now-input">
                 <label for="name">Your Name (required)</label>
                 <input type="text" name="name" id="name" required>
@@ -72,7 +72,7 @@
                 <button type="submit">Send</button>
             </div>
         </form>
-   </div>
-<!-- us-now end -->
+    </div>
+    <!-- us-now end -->
 </div>
 @endsection

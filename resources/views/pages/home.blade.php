@@ -91,7 +91,7 @@
             <p>{{ $new_book->name }}.</p>
             <h1>Newest Books in <br> Our Library</h1>
             <p>{{ Str::limit($new_book->short_details, 200, '...') }}</p>
-            <button><a href="#">View All Books</a></button>
+            <button><a href="{{ route('shop') }}">View All Books</a></button>
         </div>
     </div>
 </div>
@@ -138,7 +138,7 @@
                     <span>${{ $item->price }}</span>
                 @endif
             </div>
-            <a href="#">BUY PRODUCT</a>
+            <a href="{{ route('product.checkout', $item->id) }}">BUY PRODUCT</a>
         </div>
     </div>
     @empty
@@ -211,7 +211,7 @@
                 
             </div>
             <div class="featured-book-img-con-btn">
-                <a href="#" class="featured-book-img-con-btn1">Read the Book</a>
+                <a href="{{ route('book.details', $featured->slug) }}" class="featured-book-img-con-btn1">Read the Book</a>
                 <a href="{{ route('add.to.cart', $featured->id) }}" class="featured-book-img-con-btn2">ADD TO CART</a>
             </div>
         </div>
@@ -241,7 +241,7 @@
 <div class="fantasy-reading-adventure">
     @foreach ($categories as $category)
     <div class="fantasy">
-        <a href="#">
+        <a href="{{ route('shop', $category->id) }}">
             <div class="fantasy-img">
                 <img src="{{ asset($category->image) }}" alt="">
             </div>

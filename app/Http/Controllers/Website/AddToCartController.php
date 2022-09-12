@@ -42,6 +42,7 @@ class AddToCartController extends Controller
             "progressBar" => true]);
         return redirect()->back();
     }
+    
     public function checkout($id)
     {
         $this->AddCart($id);   

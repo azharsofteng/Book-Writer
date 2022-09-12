@@ -93,7 +93,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <p class="text-right mb-0">Shipping Cost : {{ $order->shipping_cost }}</p>
-                                    <h4 class="text-right">Total : {{ $order->sub_total + $order->shipping_cost }} Tk</h4>
+                                    <h4 class="text-right">Total : {{ $order->sub_total + $order->shipping_cost }} $</h4>
                                 </div>
                             </div>
                         </div>
