@@ -53,17 +53,27 @@ Route::group(['middleware' => 'guest:customer'], function() {
 
 //Customer Dashboard 
 Route::group(['middleware' => 'customer'], function() {
-    Route::get('/customer/dashboard', [CustomerDashboardController::class, 'index'])->name('customer.dashboard');
     Route::get('/customer/logout', [CustomerController::class, 'logout'])->name('customer.logout');
 
     // Customer Order
     Route::post('place-order', [OrderController::class, 'PlaceOrder'])->name('place.order');
-    // Route::get('customer/order-list', [HomeController::class, 'orderList'])->name('customer.order.list');
     Route::get('/checkout', [HomeController::class, 'CheckOut'])->name('checkout.cart');
-    
     Route::get('/customer', [CustomerController::class, 'logout'])->name('customer.logout');
-
     Route::get('/checkout/{id}', [AddToCartController::class, 'checkout'])->name('product.checkout');
+    // customer dashboard
+    Route::get('/customer/dashboard', [CustomerDashboardController::class, 'index'])->name('customer.dashboard');
+    Route::get('/customer/orders', [CustomerDashboardController::class, 'allOrder'])->name('customer.all.order');
+    Route::get('/customer/order/show/{id}', [CustomerDashboardController::class, 'CustomerOrderShow'])->name('customer.order.show');
+    Route::get('/customer/pending/order', [CustomerDashboardController::class, 'pendingOrder'])->name('customer.pending.order');
+    Route::get('/customer/approved/order', [CustomerDashboardController::class, 'approvedOrder'])->name('customer.approved.order');
+    Route::get('/customer/canceled/order', [CustomerDashboardController::class, 'canceledOrder'])->name('customer.canceled.order');
+    Route::get('/customer/profiles', [CustomerDashboardController::class, 'Profile'])->name('customer.profiles');
+    Route::put('/customer/profile/update/{id}', [CustomerDashboardController::class, 'profileUpdate'])->name('customer.profile.update');
+    Route::get('/customer/change/password', [CustomerDashboardController::class, 'changePassword'])->name('customer.change.password');
+    Route::post('/customer/update/password', [CustomerDashboardController::class, 'updatePassword'])->name('customer.update.password');
+    Route::get('customer/invoice/{id}', [CustomerDashboardController::class, 'getCustomerOrderInvoiceRecord'])->name('customer.order-invoices');
+    Route::get('customer/order/delete/{id}', [CustomerDashboardController::class, 'destroy'])->name('customer.order.delete');
+    Route::get('customer/order/print/{id}', [CustomerDashboardController::class, 'orderPrint'])->name('customer.order.print');
 
 });
 

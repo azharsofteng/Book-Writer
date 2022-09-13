@@ -79,7 +79,7 @@
                                                 <td>{{ $item->customer->name }}</td>
                                                 <td>{{ $item->address }}</td>
                                                 <td>{{ $item->sub_total }}</td>
-                                                <td><a class="badge badge-danger ">Pending</a></td>
+                                                <td><a class="badge bg-danger ">Pending</a></td>
                                                 <td>
                                                     <a href="{{ route('confirm.order',$item->id) }}" class="btn btn-primary btn-order shadow-none" title="Confirm Order"><i class="fas fa-check-circle"></i></a>
                                                     <a href="{{ route('invoice', $item->id) }}" class="btn btn-info btn-sm shadow-none"><i class="fa fa-file-pdf"></i></a>
@@ -117,7 +117,7 @@
                                                 <td>{{ $item->customer->name }}</td>
                                                 <td>{{ $item->address }}</td>
                                                 <td>{{ $item->sub_total }}</td>
-                                                <td><a class="badge badge-success">Confirm</a></td>
+                                                <td><a class="badge bg-success">Confirm</a></td>
                                                 <td>
                                                     <a href="{{ route('process.order',$item->id) }}" class="btn btn-success btn-order" title="Process Order"><i class="fas fa-check-circle"></i></a>
                                                     <a href="{{ route('invoice', $item->id) }}" class="btn btn-info btn-sm"><i class="fa fa-file-pdf"></i></a>
@@ -155,7 +155,7 @@
                                                 <td>{{ $item->customer->name }}</td>
                                                 <td>{{ $item->address }}</td>
                                                 <td>{{ $item->sub_total }}</td>
-                                                <td><a class="badge badge-info">Process</a></td>
+                                                <td><a class="badge bg-info">Process</a></td>
                                                 <td>
                                                     <a href="{{ route('shipping.order',$item->id) }}" class="btn btn-warning btn-order shadow-none" title="Shipping Order"><i class="fas fa-dolly"></i></a>
                                                     <a href="{{ route('invoice', $item->id) }}" class="btn btn-info btn-sm shadow-none"><i class="fa fa-file-pdf"></i></a>
@@ -193,7 +193,7 @@
                                                 <td>{{ $item->customer->name }}</td>
                                                 <td>{{ $item->address }}</td>
                                                 <td>{{ $item->sub_total }}</td>
-                                                <td><a class="badge badge-primary">Shipping</a></td>
+                                                <td><a class="badge bg-primary">Shipping</a></td>
                                                 <td>
                                                     <a href="{{ route('delivered.order',$item->id) }}" class="btn btn-dark btn-order shadow-none" title="Delivered Order"><i class="fas fa-truck"></i></a>
                                                     <a href="{{ route('invoice', $item->id) }}" class="btn btn-info btn-sm shadow-none"><i class="fa fa-file-pdf"></i></a>
@@ -231,7 +231,7 @@
                                                 <td>{{ $item->customer->name }}</td>
                                                 <td>{{ $item->address }}</td>
                                                 <td>{{ $item->sub_total }}</td>
-                                                <td><a class="badge badge-success">Delivered</a></td>
+                                                <td><a class="badge bg-success">Delivered</a></td>
                                                 <td>
                                                     <a href="{{ route('invoice', $item->id) }}" class="btn btn-info btn-sm shadow-none"><i class="fa fa-file-pdf"></i></a>
                                                 </td>
@@ -264,7 +264,7 @@
                                                 <td>{{ $item->customer->name }}</td>
                                                 <td>{{ $item->address }}</td>
                                                 <td>{{ $item->sub_total }}</td>
-                                                <td>--</td>
+                                                <td class="badge bg-danger">Cancel</td>
                                                 <td>
                                                     <a href="{{ route('invoice', $item->id) }}" class="btn btn-info btn-sm shadow-none"><i class="fa fa-file-pdf"></i></a>
                                                 </td>
