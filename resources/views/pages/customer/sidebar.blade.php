@@ -6,7 +6,7 @@
     </div>
 
     <div class="list-group customer_sidebar">
-        <a href="" class="list-group-item list-group-item-action">
+        <a href="{{ route('customer.profiles') }}" class="list-group-item list-group-item-action">
             <i class="fa fa-user" aria-hidden="true"></i> Profile Update
         </a>
         <a href="{{ route('customer.all.order') }}" class="list-group-item list-group-item-action">

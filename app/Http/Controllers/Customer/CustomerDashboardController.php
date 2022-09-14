@@ -107,9 +107,9 @@ class CustomerDashboardController extends Controller
             Toastr::success('Your Password Change Successfully!', 'Success', ["positionClass" => "toast-top-right","closeButton" => true,
             "progressBar" => true]);
             Auth::guard('customer')->logout();
-            return Redirect()->route('index');
+            return Redirect()->route('customer.login');
         }else{
-            Toastr::error('Something went wrong!', 'Error', ["positionClass" => "toast-top-right","closeButton" => true,
+            Toastr::error('Old password dose not match!', 'Error', ["positionClass" => "toast-top-right","closeButton" => true,
             "progressBar" => true]);
             return Redirect()->back();
         }

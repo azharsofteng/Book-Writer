@@ -62,7 +62,7 @@
                                 </div>
 
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-outline-info btn-block">Login</button>
+                                    <button type="submit" class="btn btn-outline-info btn-block shadow-none">Login</button>
                                 </div>
                             </form>
 

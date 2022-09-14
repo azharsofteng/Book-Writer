@@ -70,7 +70,7 @@ Route::group(['middleware' => 'customer'], function() {
     Route::get('/customer/profiles', [CustomerDashboardController::class, 'Profile'])->name('customer.profiles');
     Route::put('/customer/profile/update/{id}', [CustomerDashboardController::class, 'profileUpdate'])->name('customer.profile.update');
     Route::get('/customer/change/password', [CustomerDashboardController::class, 'changePassword'])->name('customer.change.password');
-    Route::post('/customer/update/password', [CustomerDashboardController::class, 'updatePassword'])->name('customer.update.password');
+    Route::post('/customer/update/password', [CustomerDashboardController::class, 'updatePassword'])->name('customer.password.update');
     Route::get('customer/invoice/{id}', [CustomerDashboardController::class, 'getCustomerOrderInvoiceRecord'])->name('customer.order-invoices');
     Route::get('customer/order/delete/{id}', [CustomerDashboardController::class, 'destroy'])->name('customer.order.delete');
     Route::get('customer/order/print/{id}', [CustomerDashboardController::class, 'orderPrint'])->name('customer.order.print');

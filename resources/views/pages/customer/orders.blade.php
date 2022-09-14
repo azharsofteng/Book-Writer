@@ -9,7 +9,7 @@
             </div>
             <div class="col-md-9">
                 <div class="order_list py-2 table-responsive">
-                    <h4 class="text-black fw-bold"><i class="fa fa-list-alt" aria-hidden="true"></i> Latest Order</h4>
+                    <h4 class="text-black fw-bold"><i class="fa fa-list-alt" aria-hidden="true"></i> Your Orders</h4>
                     <table class="table table-bordered table-hover text-center">
                         <thead>
                             <tr>

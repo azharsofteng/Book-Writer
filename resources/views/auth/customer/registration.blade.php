@@ -68,8 +68,8 @@
         
                             <div class="clearfix mt-1">
                                 <div class="float-md-left">
-                                    <button type="submit" class="btn btn-outline-info">Sign Up</button>
-                                    <button type="reset" class="btn btn-dark">Reset</button>
+                                    <button type="submit" class="btn btn-outline-info shadow-none">Sign Up</button>
+                                    <button type="reset" class="btn btn-dark shadow-none">Reset</button>
                                 </div>
                                 <div class="float-md-right mt-2 d-block">Already have an account? <a href="{{ route('customer.login') }}">Sign in</a></div>
                             </div>
