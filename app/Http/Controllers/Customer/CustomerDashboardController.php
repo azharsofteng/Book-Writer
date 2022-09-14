@@ -28,7 +28,9 @@ class CustomerDashboardController extends Controller
     public function CustomerOrderShow($id)
     {
         $order = Order::with(['customer'])->where('customer_id', Auth::guard('customer')->user()->id)->where('id', $id)->first();
-        $orderItem = OrderDetails::with('product')->where('order_id', $id)->latest()->get();
+        $orderItem = OrderDetails::with(['product', 'product.category' => function($c) {
+            $c->select('id', 'name');
+        }])->where('order_id', $id)->latest()->get();
         return view('pages.customer.order_details',compact('order', 'orderItem'));
     }
 
