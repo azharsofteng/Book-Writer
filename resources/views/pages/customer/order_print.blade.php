@@ -125,29 +125,29 @@
 
     @media print {
         .invoice-title {
-            font-size: 20px;
+            font-size: 16px;
         }
         .com_address h5{
             font-size: 25px;
             
         }
         .com_address p{
-            font-size: 20px;
+            font-size: 16px;
             color: #000;
         }
         .b-text{
-            font-size: 20px;
+            font-size: 16px;
         }
         .normal-text{
-            font-size: 20px;
+            font-size: 16px;
         }
 
         .invoice-details td{
-            font-size: 20px;
+            font-size: 16px;
         }
 
         .cus_total table tr td{
-            font-size: 20px;
+            font-size: 16px;
         }
     }
 </style>   
@@ -185,7 +185,7 @@
             <div class="custom-row">
                 <div class="col-xs-7 cus_address">
                     <strong class="b-text">Customer  Name:</strong> <span class="normal-text">{{ $order->customer->name}}</span><br>
-                    <strong class="b-text">Customer Mobile:</strong> <span class="normal-text">{{ $order->customer->email}}</span><br>
+                    <strong class="b-text">Customer Mobile:</strong> <span class="normal-text">{{ $order->customer->phone}}</span><br>
                     <strong class="b-text"> Address:</strong> <span class="normal-text">{{ $order->customer->address}}</span>
                 </div>
                 <div class="col-xs-5 text-right">
@@ -211,9 +211,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($orderItem as $item)
+                            @foreach ($orderItem as $key => $item)
                             <tr>
-                                <td class="text-center">{{ $loop->index + 1 }}</td>
+                                <td class="text-center">{{ $key + 1 }}</td>
                                 <td>{{ $item->product->name }}</td>
                                 <td>{{ $item->product->category->name }}</td>
                                 <td>{{ $item->quantity }}</td>
