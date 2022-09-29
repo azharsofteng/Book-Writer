@@ -24,7 +24,7 @@
                                 <div class="col-md-6">
                                     <div class="card-body">
                                         <div class="brand-wrapper">
-                                            <img src="{{ asset('images/dashboard.png') }}" alt="logo" class="logo" />
+                                            <img src="{{ asset($content->logo) }}" alt="logo" class="logo" />
                                         </div>
                                         <p class="login-card-description">Sigin into your account</p>
                                         @if (session('error'))
