@@ -35,6 +35,7 @@ Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::post('/contact/store', [HomeController::class, 'messageStore'])->name('contact.store');
 Route::get('/shop/{id?}', [HomeController::class, 'shop'])->name('shop');
 Route::get('/blogs', [HomeController::class, 'blog'])->name('blogs');
+Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
 
 // cart
 Route::get('/cart', [AddToCartController::class, 'Cart'])->name('shopping.cart');

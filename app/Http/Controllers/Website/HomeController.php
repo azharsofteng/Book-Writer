@@ -72,6 +72,11 @@ class HomeController extends Controller
         return view('pages.blog', compact('blogs', 'book'));
     }
 
+    public function faq()
+    {
+        return view('pages.faq');
+    }
+
 
     public function messageStore(Request $request) 
     {

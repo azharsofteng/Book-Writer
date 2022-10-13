@@ -17,12 +17,9 @@
                 <a href="#" onclick="myFunction()">Pages</a><i class="fa fa-chevron-down"></i>
                 <div class="sub-menu">
                     <ul>
-                        {{-- <li><a href="#">Workshop</a></li> --}}
-                        {{-- <li><a href="#">Books Presentation</a></li> --}}
                         <li><a href="{{ route('category') }}">All Categories</a></li>
-                        {{-- <li><a href="#">Coming Soon</a></li>
-                        <li><a href="#">Events</a></li> --}}
                         <li><a href="{{ route('about.me') }}">About Me</a></li>
+                        <li><a href="{{ route('faq') }}">FAQ</a></li>
                     </ul>
                 </div>
             </li>
