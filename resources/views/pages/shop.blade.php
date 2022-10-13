@@ -70,17 +70,8 @@
                 @endforelse
             </div>
         </div>
-        <div class="next-prev">
-            {!! $products->links() !!}
-            {{-- <ul>
-                <li><a href="#"><i class="fa-solid fa-angles-left"></i></a></li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#"><i class="fa-solid fa-angles-right"></i></a></li>
-            </ul> --}}
-        </div>
+        {{ $products->links('partials.custom-pagination') }}
+        
     </div>
 </div>
 <!-- shop end -->

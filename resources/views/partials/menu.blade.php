@@ -14,7 +14,7 @@
         <ul class="main-ul">
             <li><a href="{{ route('home') }}">Home</a></li>
             <li class="sub-item">
-                <a href="#">Pages</a><i class="fa fa-chevron-down"></i>
+                <a href="#" onclick="myFunction()">Pages</a><i class="fa fa-chevron-down"></i>
                 <div class="sub-menu">
                     <ul>
                         {{-- <li><a href="#">Workshop</a></li> --}}
@@ -28,10 +28,10 @@
             </li>
             <li><a href="{{ route('shop') }}">Shop</a></li>
             <li><a href="{{ route('blogs') }}">Blog</a></li>
-            <li class="contact"><a href="{{ route('contact') }}">Content</a></li>
+            <li class="contact"><a href="{{ route('contact') }}">Contact</a></li>
             @guest('customer')
             <li class="nav-right-icon nav-right1 sub-item">
-                <a href="#" onclick="logFunction2()">
+                <a href="#" onclick="myFunction2()">
                     <i class="fa-regular fa-user"></i>
                     <i class="fa fa-chevron-down"></i>
                 </a>
@@ -44,7 +44,7 @@
             @endguest
             @auth('customer')
             <li class="nav-right-icon nav-right1 sub-item">
-                <a href="#" onclick="logFunction2()">
+                <a href="#" onclick="myFunction2()">
                     <i class="fa-regular fa-user"></i> &nbsp; {{ Auth::guard('customer')->user()->name }}
                     <i class="fa fa-chevron-down"></i>
                 </a>

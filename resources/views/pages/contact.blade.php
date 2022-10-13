@@ -13,8 +13,7 @@
                 <p>Have a question? Please ask!</p>
             </div>
             <div class="contact-head-right">
-                <p>Wouldn’t you like to get away? Sometimes you want to go where everybody knows your name. And they’re
-                    always glad you came. Makin their way the only way they know how.</p>
+                <p>We are replying in next 48 hours</p>
             </div>
         </div>
     </div>
@@ -23,7 +22,8 @@
 
 
    <!-- map start -->
-   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.816328213419!2d90.42271981744385!3d23.789554000000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c5f5f7d97fad%3A0xd3727da1315796d4!2sZealtechBD!5e0!3m2!1sen!2sbd!4v1661670617386!5m2!1sen!2sbd" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2481.953096120239!2d0.03881961597251333!3d51.53242011669415!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a733770b126f%3A0x900ffc9c1563eee4!2sLam%20Aid!5e0!3m2!1sen!2sbd!4v1665429998951!5m2!1sen!2sbd" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+   {{-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.816328213419!2d90.42271981744385!3d23.789554000000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c5f5f7d97fad%3A0xd3727da1315796d4!2sZealtechBD!5e0!3m2!1sen!2sbd!4v1661670617386!5m2!1sen!2sbd" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> --}}
    <!-- map end -->
 
 

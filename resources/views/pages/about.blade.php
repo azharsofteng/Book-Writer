@@ -39,21 +39,21 @@
         <img src="{{ asset($about->signature) }}" alt="gloria_signature">
     </div>
     <div class="biography-faq">
-        <div class="accordion" onclick="myFunction1()">
+        <div class="accordion" onclick="myAbout()">
             <h2>About My Books</h2>
             <i class="fa-solid fa-chevron-right rotate1"></i>
         </div>
         <div class="panel">
             <p>{{ $about->about_books }}</p>
         </div>
-        <div class="accordion" onclick="myFunction2()">
+        <div class="accordion" onclick="wantToMeet()">
             <h2>Want to Meet Me?</h2>
             <i class="fa-solid fa-chevron-right rotate2"></i>
         </div>
         <div class="panel">
             <p>{{ $about->want_meet }}</p>
         </div>
-        <div class="accordion" onclick="myFunction3()">
+        <div class="accordion" onclick="Inspirations()">
             <h2>Inspirations</h2>
             <i class="fa-solid fa-chevron-right rotate3"></i>
         </div>
@@ -64,3 +64,6 @@
 </div>
 <!-- Biography end -->
 @endsection
+@push('web-js')
+    <script src="{{ asset('js/about.js') }}"></script>
+@endpush

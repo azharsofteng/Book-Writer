@@ -7,7 +7,7 @@
 <!-- all categories start -->
 <div class="allcategories">
     <div class="categories-top">
-        <h1>Book Shelves <br> <span>with</span> <br> Our Categories </h1>
+        <h1>Book Shelves <span>with</span> Our Categories </h1>
     </div>
     <div class="categorise-content">
         @foreach($categories as $category)

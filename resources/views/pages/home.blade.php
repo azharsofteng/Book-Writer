@@ -86,6 +86,7 @@
         </div>
         @endforelse
     </div>
+    @if ($new_book)
     <div class="books-library">
         <div>
             <p>{{ $new_book->name }}.</p>
@@ -94,6 +95,7 @@
             <button><a href="{{ route('shop') }}">View All Books</a></button>
         </div>
     </div>
+    @endif
 </div>
 <!-- book-list end -->
 
@@ -221,20 +223,20 @@
 <!-- Featured Book end -->
 
 <!-- Product-content start -->
-<div class="product-content">
+{{-- <div class="product-content">
     <div class="product-card shipping">
         <p class="head-p">FREE SHIPPING</p>
         <p class="content-p">Check out free shipping options and benefits for the holidays</p>
     </div>
     <div class="product-card delivery">
-        <p class="head-p">24 HOURS DELIVERY</p>
+        <p class="head-p">48 HOURS DELIVERY</p>
         <p class="content-p">Check out free shipping options and benefits for the holidays</p>
     </div>
     <div class="product-card returns">
         <p class="head-p">FREE RETURNS</p>
         <p class="content-p">Check out free shipping options and benefits for the holidays</p>
     </div>
-</div>
+</div> --}}
 <!-- Product-content end -->
 
 <!-- Fantasy-Reading-Adventure start -->
@@ -269,10 +271,10 @@
 
 
 <!-- signature start -->
-<div class="signature start">
+{{-- <div class="signature start">
     <p>Created with only one goal in mind.To be your <b> <u> only choice </u> </b> <br> for the web presence of your
         book.</p>
     <img src="images/signature.png" alt="">
-</div>
+</div> --}}
 <!-- signature end -->
 @endsection

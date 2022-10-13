@@ -29,6 +29,7 @@ class CreateCategoriesTable extends Migration
         // create default one 
         $category = new Category();
         $category->name = 'Imaginary Worlds';
+        $category->slug = 'imaginary-worlds';
         $category->title = 'Unvisited Places Await';
         $category->save();
     }

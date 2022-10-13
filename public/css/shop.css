@@ -4,7 +4,7 @@
 }
 /* shop-head start */
 .shop-head {
-    background: url("../images/shopbg.png") no-repeat center center;
+    background: url("../images/shop.jpg") no-repeat center center;
     background-size: cover;
     /* background-size: 100%; */
     width: 100%;
@@ -19,7 +19,7 @@
     align-content: center;
     /* justify-content: center; */
     margin-left: 10%;
-    color: #fff;
+    /* color: #fff; */
 }
 .shop-head-content h1 {
     font-size: calc(30px + (60 - 30) * (100vw - 320px) / (1920 - 320));
@@ -149,6 +149,12 @@
     display: grid;
     align-items: center;
     border-radius: 0px;
+}
+.next-prev ul li span {
+    padding: 20px 20px;
+    color: #fff;
+    transition: 0.3s;
+    background: #f66e5e;
 }
 .next-prev ul li a:hover {
     color: #fff;

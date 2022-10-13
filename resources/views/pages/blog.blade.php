@@ -1,5 +1,5 @@
 @extends('layouts.web_master')
-@section('title', 'About Us')
+@section('title', 'Blog')
 @push('web-css')
     <link rel="stylesheet" href="{{ asset('css/blog.css') }}">
 @endpush
@@ -36,6 +36,7 @@
         <div class="right-blog">
             
             <input type="text" placeholder="Search...">
+            @if ($book)
             <div class="right-blog-book">
                 <div>
                     <a href="#">
@@ -52,8 +53,9 @@
                     <img src="{{ asset($book->image) }}" alt="book">
                 </div>
             </div>
+            @endif
             <div class="blog-twitter">
-                <h1>Twitter</h1>
+                {{-- <h1>Twitter</h1>
                 <div class="blog-twitter-content">
                     <p><a href="#">@delimitedIT</a> Hello, Can you please write us through the Support tab on
                         ThremeForest and also include a link to you…</p>
@@ -77,7 +79,7 @@
                         ThremeForest and also include a link to you…</p>
                     <a href="#"> https://t.co/T8aUp6NSMb</a>
                     <a href="#">153 days ago</a>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

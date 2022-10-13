@@ -10,12 +10,12 @@
     <div class="book-details-head">
         <div class="book-details-head-img">
             <img src="{{ asset($product->image) }}" alt="book-1">
-            <div class="book-details-head-icon">
+            {{-- <div class="book-details-head-icon">
                 <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
                 <a href="#"><i class="fa-brands fa-twitter"></i></a>
                 <a href="#"><i class="fa-brands fa-google-plus-g"></i></a>
                 <a href="#"><i class="fa-brands fa-pinterest-p"></i></a>
-            </div>
+            </div> --}}
         </div>
         <div class="book-details-head-content">
             <h1>{{ $product->name }}</h1>
@@ -45,18 +45,8 @@
 
     <!-- book-details-middle-content start -->
     <div class="book-details-middle-content">
-        <div class="book-details-middle-content-1">
+        <div class="book-details-middle-content-1" style="text-align: justify;">
             {!! $product->details !!}
-            {{-- <p><span class="frist-span"><span class="last-span">T</span></span>he Caterpillar and Alice looked at
-                each other for some time in silence: at last the Caterpillar took the hookah out of its mouth, and
-                addressed her in a languid, sleepy voice.There seemed to be no use in waiting by the little door, so
-                she went back to the table, half hoping she might find another key on it, or at any rate a book of
-                rules for shutting people up like telescopes: this time she found a little bottle on it.
-
-                Alice did not quite know what to say to this: so she helped herself to some tea and
-                bread-and-butter, and then turned to the Dormouse, and repeated her question. “Why did they live at
-                the bottom of a well?”</p>
-            <img src="./Image//img_trans.png" alt="img_trans"> --}}
         </div>
     </div>
     <!-- book-details-middle-content end -->
@@ -122,14 +112,14 @@
         <h1>Add a review</h1>
         <p>Your email address will not be published. Required fields are marked *</p>
     </div>
-    <div class="rating">
+    {{-- <div class="rating">
         <p>Your rating</p>
         <i class="fa-regular fa-star"></i>
         <i class="fa-regular fa-star"></i>
         <i class="fa-regular fa-star"></i>
         <i class="fa-regular fa-star"></i>
         <i class="fa-regular fa-star"></i>
-    </div>
+    </div> --}}
     <div class="rate">
         <select id="rate">
             <option value="rate" selected>Rate...</option>
@@ -159,11 +149,11 @@
     <div class="related-products">
         <h1>Related products</h1>
         <div class="related-products-section">
-            @foreach ($cat_products as $item)
+            @foreach ($cat_products as $key => $item)
             <style>
                 .image{{ $key }},
                 .image{{ $key }}::before {
-                    background-image: url("{{ asset($book->image) }}");
+                    background-image: url("{{ asset($item->image) }}");
                     background-size: cover;
                     background-repeat: no-repeat;
                 }

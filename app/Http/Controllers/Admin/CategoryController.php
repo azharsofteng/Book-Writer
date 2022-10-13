@@ -88,11 +88,17 @@ class CategoryController extends Controller
     {
         try {
             $category = Category::find($id);
-            if (!empty($category->image) && file_exists($category->image)) {
-                unlink($category->image);
+            if($category->products->count() > 0) {
+                Toastr::error('At first delete this category books!', 'error', ["positionClass" => "toast-top-right","closeButton" => true,
+                "progressBar" => true]);
+            } else {
+                if (!empty($category->image) && file_exists($category->image)) {
+                    unlink($category->image);
+                }
+                $category->delete();
             }
-            $category->delete();
             return back();
+            
         } catch (\Exception $e) {
             Toastr::error('Something went wrong!', 'error', ["positionClass" => "toast-top-right","closeButton" => true,
             "progressBar" => true]);
