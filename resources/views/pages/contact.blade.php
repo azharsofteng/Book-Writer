@@ -13,7 +13,7 @@
                 <p>Have a question? Please ask!</p>
             </div>
             <div class="contact-head-right">
-                <p>We are replying in next 48 hours</p>
+                <p>We are replying in the next 48 hours. Yes, we do!</p>
             </div>
         </div>
     </div>
@@ -57,7 +57,7 @@
     <!-- us-now start -->
     <div class="us-now">
         <h1>write to us now.</h1>
-        <p>We are replying in the next 24 hours. Yes, we do!</p>
+        <p>We are replying in the next 48 hours. Yes, we do!</p>
         <form action="{{ route('contact.store') }}" method="POST">
             @csrf
             <div class="us-now-input">

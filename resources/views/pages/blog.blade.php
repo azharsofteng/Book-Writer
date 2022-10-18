@@ -7,82 +7,91 @@
 <!-- blog start -->
 <div class="blog">
     <h1>Blog</h1>
-    <div class="full-blog">
-        <div class="left-blog">
-            @foreach ($blogs as $blog)
-            <div class="left-full-blog">
-                <img src="{{ asset($blog->image) }}" alt="">
-                <div class="left-blog-content">
-                    <div class="blog-name-date">
-                        <a href="#">
-                            <h1>{{ $blog->title }}</h1>
-                        </a>
-                        <p>{{ \Carbon\Carbon::createFromTimestamp(strtotime($blog->date))->format('F, d Y') }}</p>
-                    </div>
-                    <hr>
-                    <div class="blog-desc">
-                        {!! Str::limit($blog->description, 200) !!}
-                    </div>
-                    <div class="left-blog-footer">
-                        <a href="#"><button>Read More</button></a>
-                        {{-- <a href="#" class="blog-writing">WRITING</a> --}}
-                    </div>
-                </div>
-            </div>
-            @endforeach
-        </div>
-
-
-        <div class="right-blog">
-            
-            <input type="text" placeholder="Search...">
-            @if ($book)
-            <div class="right-blog-book">
-                <div>
+    <div class="main-blog">
+        @forelse ($blogs as $blog)
+        <div class="main-full-blog">
+            <img src="{{ asset($blog->image) }}" alt="">
+            <div class="main-blog-content">
+                <div class="blog-name-date">
                     <a href="#">
-                        <h4>{{ $book->name }}</h4>
+                        <h1>{{ $blog->title }}</h1>
                     </a>
-                    @if ($book->discount > 0)
-                        <span>${{ $book->price - $book->discount }}</span>
-                        <del>${{ $book->price }}</del>
-                    @else
-                        <span>${{ $book->price }}</span>
-                    @endif
+                    <p>{{ \Carbon\Carbon::createFromTimestamp(strtotime($blog->date))->format('F, d Y') }}</p>
                 </div>
-                <div>
-                    <img src="{{ asset($book->image) }}" alt="book">
+                <hr>
+                <div class="blog-desc">
+                    {!! Str::limit($blog->description, 200) !!}
                 </div>
-            </div>
-            @endif
-            <div class="blog-twitter">
-                {{-- <h1>Twitter</h1>
-                <div class="blog-twitter-content">
-                    <p><a href="#">@delimitedIT</a> Hello, Can you please write us through the Support tab on
-                        ThremeForest and also include a link to you…</p>
-                    <a href="#"> https://t.co/T8aUp6NSMb</a>
-                    <a href="#">153 days ago</a>
+                <div class="main-blog-footer">
+                    <a href="{{ route('blog.details', $blog->slug) }}"><button>Read More</button></a>
+                    {{-- <a href="#" class="blog-writing">WRITING</a> --}}
                 </div>
-                <div class="blog-twitter-content">
-                    <p><a href="#">@delimitedIT</a> Hello, Can you please write us through the Support tab on
-                        ThremeForest and also include a link to you…</p>
-                    <a href="#"> https://t.co/T8aUp6NSMb</a>
-                    <a href="#">153 days ago</a>
-                </div>
-                <div class="blog-twitter-content">
-                    <p><a href="#">@delimitedIT</a> Hello, Can you please write us through the Support tab on
-                        ThremeForest and also include a link to you…</p>
-                    <a href="#"> https://t.co/T8aUp6NSMb</a>
-                    <a href="#">153 days ago</a>
-                </div>
-                <div class="blog-twitter-content">
-                    <p><a href="#">@delimitedIT</a> Hello, Can you please write us through the Support tab on
-                        ThremeForest and also include a link to you…</p>
-                    <a href="#"> https://t.co/T8aUp6NSMb</a>
-                    <a href="#">153 days ago</a>
-                </div> --}}
             </div>
         </div>
+        @empty
+        <div class="main-full-blog">
+            <img src="./Image/happy_leaf__commission__by_nieris_dazqyfb-fullview-1000x600.jpg" alt="">
+            <div class="main-blog-content">
+                <div class="blog-name-date">
+                    <a href="#">
+                        <h1>The Most Interesting Book Characters</h1>
+                    </a>
+                    <p>JANUARY 28, 2019</p>
+                </div>
+                <hr>
+                <p class="blog-desc">Shores of the cosmic ocean. Hearts of the stars. Vanquish the impossible
+                    Sea of
+                    Tranquility sed quia
+                    non numquam eius modi tempora incidunt ut labore…</p>
+                <div class="main-blog-footer">
+                    <a href="#"><button>Read More</button></a>
+                    <a href="#" class="blog-writing">WRITING</a>
+                </div>
+            </div>
+        </div>
+        <div class="main-full-blog">
+            <img src="./Image/all-categories.jpg" alt="">
+            <div class="main-blog-content">
+                <div class="blog-name-date">
+                    <a href="#">
+                        <h1>The Most Interesting Book Characters</h1>
+                    </a>
+                    <p>JANUARY 28, 2019</p>
+                </div>
+                <hr>
+                <p class="blog-desc">Shores of the cosmic ocean. Hearts of the stars. Vanquish the impossible
+                    Sea of
+                    Tranquility sed quia
+                    non numquam eius modi tempora incidunt ut labore…</p>
+                <div class="main-blog-footer">
+                    <a href="#"><button>Read More</button></a>
+                    <a href="#" class="blog-writing">WRITING</a>
+                </div>
+            </div>
+        </div>
+        <div class="main-full-blog">
+            <img src="./Image/autumn_dragon_by_nieris_dbi0nbw-fullview-1000x600.jpg" alt="">
+            <div class="main-blog-content">
+                <div class="blog-name-date">
+                    <a href="#">
+                        <h1>The Most Interesting Book Characters</h1>
+                    </a>
+                    <p>JANUARY 28, 2019</p>
+                </div>
+                <hr>
+                <p class="blog-desc">Shores of the cosmic ocean. Hearts of the stars. Vanquish the impossible
+                    Sea of
+                    Tranquility sed quia
+                    non numquam eius modi tempora incidunt ut labore…</p>
+                <div class="main-blog-footer">
+                    <a href="./bookDetailsPage.html"><button>Read More</button></a>
+                    <a href="#" class="blog-writing">WRITING</a>
+                </div>
+            </div>
+        </div>
+        @endforelse
     </div>
+    {{ $blogs->links('partials.custom-pagination') }}
 </div>
 <!-- blog end -->
 @endsection

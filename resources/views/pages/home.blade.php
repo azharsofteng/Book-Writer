@@ -27,8 +27,8 @@
 <!-- midel-content-one start-->
 <div class="midel-content-one">
     <img src="images/black-leaf.png" alt="black-leaf">
-    <h5>"Every day is a journey and the journey itself is home."</h5>
-    <p>MATSU BASHIO</p>
+    <h5>"The best of you are those who gain and share knowledge with others."</h5>
+    <p>“Dr. Shams”</p>
 </div>
 <!-- midel-content-one end -->
 
@@ -109,8 +109,7 @@
         <p>See the Books People Read the Most</p>
     </div>
     <div>
-        <p class="best-sellers-content">Wouldn’t you like to get away? Sometimes you want to go where everybody
-            knows your name. And they’re always glad you came. Makin their way the only way they know how.</p>
+        <p class="best-sellers-content">When the human being dies, his deeds end except for three: ongoing charity, beneficial knowledge, or a righteous child who prays for him.</p>
     </div>
 </div>
 <!-- best-sellers end -->
@@ -190,7 +189,7 @@
         <h1>Featured Book</h1>
         <p>THE STORY</p>
         <p>{{ $featured->short_details }}</p>
-        <p>ABOUT SKY KINGDOM</p>
+        <p>ABOUT THE BOOK</p>
         <div>
             {!! Str::limit($featured->details, 350, '...') !!}
         </div>

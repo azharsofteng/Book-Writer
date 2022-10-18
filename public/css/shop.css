@@ -233,7 +233,10 @@
         width: 90%;
         margin: 2% 5%;
     }
-
+    .shop-head {
+        height: 35vh !important;
+    }
+    
     /* footer end  */
 }
 

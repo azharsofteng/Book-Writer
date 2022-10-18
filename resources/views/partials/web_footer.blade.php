@@ -10,6 +10,7 @@
         <p><a href="{{ route('category') }}">Categories</a></p>
         <p><a href="{{ route('shop') }}">Shop</a></p>
         <p><a href="{{ route('blogs') }}">Blog</a></p>
+        <p><a href="{{ route('faq') }}">FAQ</a></p>
         <p><a href="{{ route('contact') }}">Contact</a></p>
     </div>
     <div class="footer-three">

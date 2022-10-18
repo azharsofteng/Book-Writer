@@ -112,6 +112,10 @@
                                     <div>
                                         <img src="{{ (!empty(@$product)) ? asset(@$product->writer_image) : asset('no-image.jpg') }}" id="previewWriterImage" style="width: 100px; height: 80px; border: 1px solid #999; padding: 2px;" alt="">
                                     </div>
+                    
+                                    <label for="read_more_url" class="col-form-label">Read More Url </label>
+                                    <input type="text" name="read_more_url" id="read_more_url" value="{{ isset($product) ? $product->read_more_url : old('read_more_url') }}" class="form-control shadow-none form-control-sm" placeholder="Enter Url">
+
                                     <label for="is_feature" class="mt-1"><input {{ @$product->is_feature == 1 ? 'checked' : '' }} type="checkbox" name="is_feature" value="1" id="is_feature"> Is Feature</label>
                                 </div>
                                 <div class="col-lg-8 col-md-6">

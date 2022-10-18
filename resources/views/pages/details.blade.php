@@ -5,7 +5,7 @@
 @endpush
 @section('web-content')
  <!-- full-book-details-page start -->
- <div class="full-book-details-page">
+<div class="full-book-details-page">
     <!-- book-details-head start -->
     <div class="book-details-head">
         <div class="book-details-head-img">
@@ -30,15 +30,19 @@
             </div>
             <div class="full-inc-dec">
                 <div class="inc-dec">
-                    <button>-</button>
+                    <button onclick="IncrementDecrement(-1)">-</button>
                     <span>1</span>
-                    <button>+</button>
+                    <button onclick="IncrementDecrement(1)">+</button>
+                    @php
+                        $qty = '<input type="text" id="qty" value="1"/>';
+                    @endphp
                 </div>
                 <div class="add-to-cart-btn">
+                    {{-- <a href="{{ url("add-to-cart/{$product->id}/2") }}">Add to Cart</a> --}}
                     <a href="{{ route('add.to.cart', $product->id) }}">Add to Cart</a>
                 </div>
             </div>
-            <button class="read-book">Read the Book</button>
+            <a href="{{ $product->read_more_url }}"><button class="read-book">Read the Book</button></a>
         </div>
     </div>
     <!-- book-details-head end -->
@@ -81,10 +85,14 @@
                 }
             </style>
             <div class="book-card">
-                <div class="container">
-                    <div class="image image{{ $key }}"></div>
-                </div>
-                <h2>{{ $book->name }}</h2>
+                <a href="{{ route('book.details', $book->slug) }}">
+                    <div class="container">
+                        <div class="image image{{ $key }}"></div>
+                    </div>
+                </a>
+                <a href="{{ route('book.details', $book->slug) }}">
+                    <h2>{{ $book->name }}</h2>
+                </a>
                 <div class="span">
                     @if ($book->discount > 0)
                         <span>${{ $book->price - $book->discount }}</span>
@@ -159,10 +167,14 @@
                 }
             </style>
             <div class="book-card">
-                <div class="container">
-                    <div class="image image{{ $key }}"></div>
-                </div>
-                <h2>{{ $item->name }}</h2>
+                <a href="{{ route('book.details', $item->slug) }}">
+                    <div class="container">
+                        <div class="image image{{ $key }}"></div>
+                    </div>
+                </a>
+                <a href="{{ route('book.details', $item->slug) }}">
+                    <h2>{{ $item->name }}</h2>
+                </a>
                 <div class="span">
                     @if ($item->discount > 0)
                         <span>${{ $item->price - $item->discount }}</span>
@@ -180,3 +192,17 @@
 </div>
 <!-- full-book-details-page end -->
 @endsection
+
+@push("web-js")
+
+<script>
+    function IncrementDecrement(value){
+       var val = $(".inc-dec").find("span").text()
+       if((+val+value) !=  0){
+           $(".inc-dec").find("span").text(+val+value)
+           $("#qty").val(+val+value)
+       } 
+    }
+</script>
+
+@endpush

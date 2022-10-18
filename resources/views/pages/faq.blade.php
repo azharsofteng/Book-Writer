@@ -11,17 +11,18 @@
             <p>Answers to the most frequently asked questions.</p>
         </header>
 
+        @forelse ($faqs as $item)
         <details>
             <summary>
-                <h4>Why is Raycast free for personal use?</h4>
+                <h4>{{ $item->question }}</h4>
                 <span class="material-symbols-outlined"><i class="fa-solid fa-chevron-down"></i></span>
             </summary>
             <p>
-                We think of Raycast as a productivity layer that everybody should use to get work done faster. To make it accessible, we don't charge for the individual plan. The plan covers all built-in extensions, such as Clipboard
-                History, Calendar or Window Management and provides access to all public extensions built by our community.
+               {{ $item->answer }}
             </p>
         </details>
-
+            
+        @empty
         <details>
             <summary>
                 <h4>When is Raycast for teams available?</h4>
@@ -48,14 +49,7 @@
                 available in the Store command, behind a filter for your Team. This is where all of your Team Extensions will live, and where you can install them.
             </p>
         </details>
-
-        <details>
-            <summary>
-                <h4>How much will Team features cost?</h4>
-                <span class="material-symbols-outlined"><i class="fa-solid fa-chevron-down"></i></span>
-            </summary>
-            <p>Team features will cost $10 per user, per month.</p>
-        </details>
+        @endforelse
     </div>
 </div>
 @endsection

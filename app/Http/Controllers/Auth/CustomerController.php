@@ -66,7 +66,7 @@ class CustomerController extends Controller
         }
         return redirect()->back()
             ->withInput($request->only('phone'))
-            ->with('error', 'Email number or Password was invalid.');
+            ->with('error', 'Email or Password was invalid.');
 
     }
 

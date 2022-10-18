@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Auth\CustomerController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Website\AddToCartController;
 use App\Http\Controllers\Auth\AuthenticationController;
 use App\Http\Controllers\Customer\CustomerDashboardController;
@@ -35,7 +36,9 @@ Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::post('/contact/store', [HomeController::class, 'messageStore'])->name('contact.store');
 Route::get('/shop/{id?}', [HomeController::class, 'shop'])->name('shop');
 Route::get('/blogs', [HomeController::class, 'blog'])->name('blogs');
+Route::get('/blog/{slug}', [HomeController::class, 'blogDetails'])->name('blog.details');
 Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
+Route::get('/galleries', [HomeController::class, 'gallery'])->name('gallery');
 
 // cart
 Route::get('/cart', [AddToCartController::class, 'Cart'])->name('shopping.cart');
@@ -121,6 +124,12 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/gallery/edit/{id}', [GalleryController::class, 'edit'])->name('gallery.edit');
     Route::post('/gallery/update/{id}', [GalleryController::class, 'update'])->name('gallery.update');
     Route::delete('/gallery/destroy/{id}', [GalleryController::class, 'destroy'])->name('gallery.delete');
+    //FAQ
+    Route::get('/admin/faq', [FaqController::class, 'index'])->name('faq.index');
+    Route::post('/faq/store', [FaqController::class, 'store'])->name('faq.store');
+    Route::get('/faq/edit/{id}', [FaqController::class, 'edit'])->name('faq.edit');
+    Route::post('/faq/update/{id}', [FaqController::class, 'update'])->name('faq.update');
+    Route::delete('/faq/destroy/{id}', [FaqController::class, 'destroy'])->name('faq.delete');
     //Product
     Route::get('/product', [ProductController::class, 'index'])->name('product.index');
     Route::post('/product/store', [ProductController::class, 'store'])->name('product.store');
@@ -143,7 +152,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::delete('customer-list/{id}', [DashboardController::class, 'customerDestroy'])->name('customer.destroy');
 
     // public message
-    Route::get('/public/message', [DashboardController::class, 'message'])->name('message.list');
+    Route::get('/customer/message', [DashboardController::class, 'message'])->name('message.list');
     Route::delete('/message/destroy/{id}', [DashboardController::class, 'deleteMessage'])->name('message.destroy');
     
 });

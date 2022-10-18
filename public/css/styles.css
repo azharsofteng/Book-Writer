@@ -10981,6 +10981,7 @@ body {
 .sb-topnav .navbar-brand {
     width: 225px;
     margin: 0;
+    font-size: 18px;
 }
 
 .sb-topnav.navbar-dark #sidebarToggle {

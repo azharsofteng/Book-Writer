@@ -161,6 +161,7 @@ ul li a {
   color: #949494;
   font-family: Arial, Helvetica, sans-serif;
   line-height: 27px;
+  text-align: justify;
 }
 
 .biography img {
@@ -385,6 +386,7 @@ ul li a {
     padding: 0 50px 0 50px;
     z-index: 1;
   }
+  
 
   nav .main-ul {
     position: fixed;

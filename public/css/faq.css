@@ -11,7 +11,7 @@ ul li a {
 .faq-section {
     max-width: 760px;
     margin: 0 auto;
-    padding-top: 100px;
+    padding-top: 120px;
 }
 
 header {
@@ -76,5 +76,10 @@ details > p {
     .faq-section {
         max-width: 90%;
         margin: 0 auto;
+    }
+}
+@media screen and (max-width: 768px) { 
+    header {
+        height: 12vh !important;
     }
 }

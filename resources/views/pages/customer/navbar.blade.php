@@ -14,22 +14,24 @@
             <i class="fa-solid fa-bars"></i>
         </label>
         <ul class="main-ul mb-0">
-            <li><a href="./home.html">Home</a></li>
+            <li><a href="{{ route('home') }}">Home</a></li>
             <li class="sub-item">
-                <a href="#" onclick="subFunction()">Pages</a><i class="fa fa-chevron-down"></i>
+                <a href="#" onclick="myFunction()">Pages</a><i class="fa fa-chevron-down"></i>
                 <div class="sub-menu">
                     <ul>
                         <li><a href="{{ route('category') }}">Categories</a></li>
                         <li><a href="{{ route('about.me') }}">About Me</a></li>
+                        <li><a href="{{ route('faq') }}">FAQ</a></li>
                     </ul>
                 </div>
             </li>
-            <li><a href="./shop.html">Shop</a></li>
-            <li><a href="./blog.html">Blog</a></li>
-            <li class="contact"><a href="./contactus.html">Contact</a></li>
+            <li><a href="{{ route('shop') }}">Shop</a></li>
+            <li><a href="{{ route('blogs') }}">Blog</a></li>
+            <li><a href="{{ route('gallery') }}">Gallery</a></li>
+            <li class="contact"><a href="{{ route('contact') }}">Contact</a></li>
             @guest('customer')
             <li class="nav-right-icon nav-right1 sub-item">
-                <a href="#" onclick="logFunction2()">
+                <a href="#" onclick="myFunction2()">
                     <i class="fa-regular fa-user"></i>
                     <i class="fa fa-chevron-down"></i>
                 </a>
@@ -42,7 +44,7 @@
             @endguest
             @auth('customer')
             <li class="nav-right-icon nav-right1 sub-item">
-                <a href="#" onclick="logFunction2()">
+                <a href="#" onclick="myFunction2()">
                     <i class="fa-regular fa-user"></i> &nbsp; {{ Auth::guard('customer')->user()->name }}
                     <i class="fa fa-chevron-down"></i>
                 </a>

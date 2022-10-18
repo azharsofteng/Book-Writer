@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Website;
 
+use App\Models\Faq;
 use App\Models\Blog;
 use App\Models\About;
 use App\Models\Banner;
+use App\Models\Gallery;
 use App\Models\Message;
 use App\Models\Product;
 use App\Models\Category;
@@ -67,14 +69,26 @@ class HomeController extends Controller
 
     public function blog()
     {
-        $blogs = Blog::latest()->get();
-        $book = Product::latest()->first();
-        return view('pages.blog', compact('blogs', 'book'));
+        $blogs = Blog::latest()->paginate(8);
+        return view('pages.blog', compact('blogs'));
+    }
+
+    public function blogDetails($slug)
+    {
+        $blog =  Blog::where('slug', $slug)->first();
+        return view('pages.blog-details', compact('blog'));
     }
 
     public function faq()
     {
-        return view('pages.faq');
+        $faqs = Faq::latest()->get();
+        return view('pages.faq', compact('faqs'));
+    }
+
+    public function gallery()
+    {
+        $galleries = Gallery::latest()->get();
+        return view('pages.gallery', compact('galleries'));
     }
 
 

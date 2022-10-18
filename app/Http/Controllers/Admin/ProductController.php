@@ -41,6 +41,7 @@ class ProductController extends Controller
             $product->writer = $request->writer;
             $product->image = $this->imageUpload($request, 'image', 'uploads/product');
             $product->writer_image = $this->imageUpload($request, 'writer_image', 'uploads/product');
+            $product->read_more_url = $request->read_more_url;
             $product->is_feature = $request->is_feature;
             $product->ip = $request->ip();
             $product->save();
@@ -100,6 +101,7 @@ class ProductController extends Controller
             $product->writer = $request->writer;
             $product->image = $Image;
             $product->writer_image = $WriterImage;
+            $product->read_more_url = $request->read_more_url;
             $product->is_feature = $request->is_feature;
             $product->ip = $request->ip();
             $product->save();

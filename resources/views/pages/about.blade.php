@@ -26,8 +26,8 @@
 <!-- about mid start -->
 <div class="about-mid">
     <img src="./Image/black-leaf.png" alt="">
-    <h2>"You usually have to wait for that which is worth <br /> waiting for."</h2>
-    <h3>CRAIG BRUCE</h3>
+    <h2>"The believers are never satisfied with learning good until they arrive in Paradise."</h2>
+    <h3>“Dr. Shams”</h3>
 </div>
 <!-- about mid end -->
 

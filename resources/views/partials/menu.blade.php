@@ -25,6 +25,7 @@
             </li>
             <li><a href="{{ route('shop') }}">Shop</a></li>
             <li><a href="{{ route('blogs') }}">Blog</a></li>
+            {{-- <li><a href="{{ route('gallery') }}">Gallery</a></li> --}}
             <li class="contact"><a href="{{ route('contact') }}">Contact</a></li>
             @guest('customer')
             <li class="nav-right-icon nav-right1 sub-item">

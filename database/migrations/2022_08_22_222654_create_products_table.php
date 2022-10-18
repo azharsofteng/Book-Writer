@@ -27,6 +27,7 @@ class CreateProductsTable extends Migration
             $table->string('writer', 60)->nullable();
             $table->string('writer_image')->nullable();
             $table->text('short_details');
+            $table->text('read_more_url')->nullable();
             $table->text('details')->nullable();
             $table->tinyInteger('is_feature')->nullable();
             $table->string('ip')->nullable();

@@ -19,6 +19,7 @@
                         <a class="nav-link" href="{{ route('category.index') }}">Category</a>
                         <a class="nav-link" href="{{ route('product.index') }}">Product</a>
                         <a class="nav-link" href="{{ route('blog.index') }}">Blog</a>
+                        <a class="nav-link" href="{{ route('faq.index') }}">FAQ</a>
                         <a class="nav-link" href="{{ route('gallery.index') }}">Gallery</a>
                     </nav>
                 </div>
@@ -54,6 +55,7 @@
                     <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                         <a class="nav-link" href="{{ route('registration.store') }}">Create User</a>
                         <a class="nav-link" href="{{ route('profile') }}">Profile Update</a>
+                        <a class="nav-link" href="{{ route('customer.list') }}">Customer List</a>
                     </nav>
                 </div>
                 {{-- <div class="sb-sidenav-menu-heading">Addons</div> --}}
