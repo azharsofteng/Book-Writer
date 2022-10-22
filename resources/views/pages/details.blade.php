@@ -210,8 +210,8 @@
         var quantity = $(".quantity").val()
 
         toastr.options = {
-          "closeButton": false,
-          "newestOnTop": false,
+          "closeButton": true,
+          "progressBar": true,
           "positionClass": "toast-top-right"
         };
 
@@ -222,7 +222,7 @@
             success: res => {
                 toastr.success("Cart Add success");
                 setInterval(() => {
-                    location.reload()
+                    location.href = "/cart"
                 }, 500)
             }
         })
