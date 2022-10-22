@@ -75,10 +75,10 @@
     <div class="more-book">
         <h1>More From <span>{{ $product->writer }}</span></h1>
         <div class="more-book-section">
-            @foreach ($more_products as $key => $book)
+            @foreach ($more_products as $ind => $book)
             <style>
-                .image{{ $key }},
-                .image{{ $key }}::before {
+                .image-{{ $ind }},
+                .image-{{ $ind }}::before {
                     background-image: url("{{ asset($book->image) }}");
                     background-size: cover;
                     background-repeat: no-repeat;
@@ -87,7 +87,7 @@
             <div class="book-card">
                 <a href="{{ route('book.details', $book->slug) }}">
                     <div class="container">
-                        <div class="image image{{ $key }}"></div>
+                        <div class="image image-{{ $ind }}"></div>
                     </div>
                 </a>
                 <a href="{{ route('book.details', $book->slug) }}">

@@ -368,19 +368,6 @@ ul li a {
     filter: brightness(70%);
 }
 
-.image1,
-.image1::before {
-    background-image: url("../Image/book-5.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-.image2,
-.image2::before {
-    background-image: url("../Image/book-6.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-}
 
 .image:hover {
     transform: rotateY(40deg) scale(0.9);
@@ -510,19 +497,6 @@ ul li a {
     filter: brightness(70%);
 }
 
-.image1,
-.image1::before {
-    background-image: url("../Image/book-5.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-.image2,
-.image2::before {
-    background-image: url("../Image/book-6.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-}
 
 .image:hover {
     transform: rotateY(40deg) scale(0.9);

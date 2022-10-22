@@ -586,9 +586,11 @@ nav ul li {
     cursor: pointer;
     margin-bottom: 4%;
 }
-
+.owl-carousel-content{
+    text-align: center;
+}
 .owl-carousel-content h2 {
-    font-size: calc(20px + (30 - 20) * (100vw - 320px) / (1920 - 320));
+    font-size: calc(15px + (30 - 15) * (100vw - 320px) / (2100 - 320));
     color: #252525;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -599,10 +601,10 @@ nav ul li {
 }
 
 .owl-carousel-content .span {
-    margin: 13px 0 30px 0;
+    margin: 3% 0 7% 0;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 600;
-    font-size: 15px;
+    font-size: calc(10px + (15 - 10) * (100vw - 320px) / (2100 - 320));
 }
 
 .owl-carousel-content .span span {
@@ -619,7 +621,7 @@ nav ul li {
     text-align: center;
     text-decoration: none;
     color: #dfdfdf;
-    font-size: 14px;
+    font-size: calc(10px + (14 - 10) * (100vw - 320px) / (2100 - 320));
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 600;
     margin-top: 5px;
@@ -755,7 +757,7 @@ nav ul li {
 }
 
 .featured-book-card h2 {
-    font-size: 25px;
+    font-size: calc(17px + (25 - 17) * (100vw - 320px) / (2100 - 320));
     color: #484848;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -766,10 +768,10 @@ nav ul li {
 }
 
 .featured-book-card .span {
-    margin: 13px 0;
+    margin: 5px 0;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 600;
-    font-size: 20px;
+    font-size: calc(14px + (20 - 14) * (100vw - 320px) / (2100 - 320));
 }
 
 .featured-book-card .span span {
@@ -799,7 +801,7 @@ nav ul li {
     color: #f66e5e;
     border: 1px solid #f66e5e;
     border-radius: 30px;
-    padding: 15px 30px;
+    padding: 5% 30px;
     transition: 0.5s;
 }
 
@@ -1482,7 +1484,7 @@ nav ul li {
     }
 
     /* book image design start */
-    .container {
+    .book-card .container {
         width: 170px;
         height: 250px;
         padding: 10px;
@@ -1610,7 +1612,7 @@ nav ul li {
         margin: 0 5% 0 0%;
     }
     /* book image design start */
-    .container {
+    .book-card .container {
         width: 100px;
         height: 140px;
         padding: 10px;
