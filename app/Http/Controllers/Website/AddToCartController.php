@@ -14,7 +14,7 @@ class AddToCartController extends Controller
         return view('pages.cart');
     }
 
-    public function AddCart($id=null, $qty=null) 
+    public function AddCart($id=null)
     {
 
         $product = Product::findOrFail($id);
@@ -28,6 +28,26 @@ class AddToCartController extends Controller
                 "id" => $product->id,
                 "name" => $product->name,
                 "quantity" => 1,
+                "price" => $product->price,
+                "image" => $product->image
+            ];
+        }
+          
+        session()->put('cart', $cart);
+    }
+
+    public function CartAdd(Request $request){
+        $product = Product::findOrFail($request->id);
+          
+        $cart = session()->get('cart', []);
+  
+        if(isset($cart[$request->id])) {
+            $cart[$request->id]['quantity'] = $request->quantity;
+        } else {
+            $cart[$request->id] = [
+                "id" => $product->id,
+                "name" => $product->name,
+                "quantity" => $request->quantity,
                 "price" => $product->price,
                 "image" => $product->image
             ];
