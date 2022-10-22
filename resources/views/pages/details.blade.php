@@ -33,13 +33,14 @@
                     <button onclick="IncrementDecrement(-1)">-</button>
                     <span>1</span>
                     <button onclick="IncrementDecrement(1)">+</button>
+                    <input type="hidden" class="quantity" value="1"/>
                     @php
-                        $qty = '<input type="text" id="qty" value="1"/>';
+                        $qty = '<input type="text" id="qty"value="1"/>';
                     @endphp
                 </div>
                 <div class="add-to-cart-btn">
                     {{-- <a href="{{ url("add-to-cart/{$product->id}/2") }}">Add to Cart</a> --}}
-                    <a href="{{ route('add.to.cart', $product->id) }}">Add to Cart</a>
+                    <a onclick="CartAdd({{$product->id}})">Add to Cart</a>
                 </div>
             </div>
             <a href="{{ $product->read_more_url }}"><button class="read-book">Read the Book</button></a>
@@ -201,7 +202,30 @@
        if((+val+value) !=  0){
            $(".inc-dec").find("span").text(+val+value)
            $("#qty").val(+val+value)
+           $(".quantity").val(+val+value)
        } 
+    }
+
+    function CartAdd(id){
+        var quantity = $(".quantity").val()
+
+        toastr.options = {
+          "closeButton": true,
+          "progressBar": true,
+          "positionClass": "toast-top-right"
+        };
+
+        $.ajax({
+            url: location.origin+"/addtocart",
+            method: "POST",
+            data: {id:id, quantity:quantity},
+            success: res => {
+                toastr.success("Cart Add success");
+                setInterval(() => {
+                    location.href = "/cart"
+                }, 500)
+            }
+        })
     }
 </script>
 

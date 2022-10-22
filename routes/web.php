@@ -43,6 +43,7 @@ Route::get('/galleries', [HomeController::class, 'gallery'])->name('gallery');
 // cart
 Route::get('/cart', [AddToCartController::class, 'Cart'])->name('shopping.cart');
 Route::get('add-to-cart/{id}', [AddToCartController::class, 'addToCart'])->name('add.to.cart');
+Route::post('addtocart', [AddToCartController::class, 'CartAdd']);
 Route::patch('update-cart', [AddToCartController::class, 'update'])->name('update.cart');
 Route::delete('remove-from-cart', [AddToCartController::class, 'remove'])->name('remove.from.cart');
 
