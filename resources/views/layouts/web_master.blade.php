@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Iftekhar Ahmed Shams – Author</title>
-    <meta name="description" content="Dr. Iftekhar Ahmed Shams is the President of LamAid Ltd. and a writer who has lived in the
+    <title>Dr. I. A. Shams – Author</title>
+    <meta name="description" content="Dr. I. A. Shams is the President of LamAid Ltd. and a writer who has lived in the
     UK for over 10 years." />
-    <meta name="keywords" content="Dr. Iftekhar Ahmed Shams, Author, Book, Book Writer, Life after Death, Young Generation, History of Islam, Book Shop, Buy Book"/>
-    <meta name="classification" content="Dr. Iftekhar Ahmed Shams, Author, Book, Book Writer, Book Shop, Buy Book" />
+    <meta name="keywords" content="Dr. I. A. Shams, Author, Book, Book Writer, Life after Death, Young Generation, History of Islam, Book Shop, Buy Book"/>
+    <meta name="classification" content="Dr. I. A. Shams, Author, Book, Book Writer, Book Shop, Buy Book" />
     <meta name="distribution" content="Global" />
     <meta name="rating" content="General" />
     <meta name="robots" content="index, follow" />

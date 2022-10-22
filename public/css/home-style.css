@@ -234,18 +234,18 @@ nav ul li {
 .head-title h6 {
     font-size: calc(15px + (20 - 15) * (100vw - 320px) / (1920 - 320));
     color: #949494;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .head-title p {
-    font-size: calc(14px + (18 - 14) * (100vw - 320px) / (1920 - 320));
+    font-size: calc(12px + (18 - 14) * (100vw - 320px) / (1920 - 320));
     color: #949494;
     font-family: "Quicksand", sans-serif;
     letter-spacing: 0px;
 }
 
 .head-btn {
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 .head-btn button {
